@@ -16,20 +16,27 @@ function LoginForm() {
         const enteredUsername = usernameInputRef.current.value;
         const enteredPwd = passwordInputRef.current.value;
 
-        fetch(
-            'https://jjsolutions.rs/api.php?username='+enteredUsername+'&password='+enteredPwd
-        ).then(response => response.json()).then(data => {
-            if(data.user !== undefined) {
-                loggedInCtx.loginUser(data.user);
-                localStorage.setItem('user_id',data.user.user_id);
-                localStorage.setItem('username',data.user.username);
-                localStorage.setItem('avatar',data.user.profile_image);
-                localStorage.setItem('verified',data.user.verified);
-                history.push('/');
-            } else {
-                alert('Please check if you entered valid credentials.')
-            }
+        const url='https://jjsolutions.rs/api.php';
+        const formData = new FormData();
+        formData.append('username', enteredUsername);
+        formData.append('password', enteredPwd);
+
+        fetch(url, { method: 'POST', body: formData })
+        .then((response) => {
+        return response.json();
         })
+        .then((body) => {
+                if(body.user !== undefined) {
+                    loggedInCtx.loginUser(body.user);
+                    localStorage.setItem('user_id',body.user.user_id);
+                    localStorage.setItem('username',body.user.username);
+                    localStorage.setItem('avatar',body.user.profile_image);
+                    localStorage.setItem('verified',body.user.verified);
+                    history.push('/');
+                } else {
+                    alert('Please check if you entered valid credentials.')
+                }
+        });
 
     }
 

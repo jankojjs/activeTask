@@ -13,7 +13,7 @@ function TasklistCard(props) {
 
     useEffect(() => {
         if(allTasks.length > 0) {
-            console.log(allTasks)
+            // console.log(allTasks)
         }
     }, [allTasks])
 
@@ -27,7 +27,7 @@ function TasklistCard(props) {
                 <li className={classes.listItem}>
                     {allTasks && allTasks.map((individualTaskCard) => {
                         return (
-                            <TaskCard key={individualTaskCard.task_id} name={individualTaskCard.task_name} />
+                            <TaskCard key={individualTaskCard.task_id} taskId={individualTaskCard.task_id} name={individualTaskCard.task_name} label={individualTaskCard.task_label} active={individualTaskCard.task_active}/>
                         )
                     })
                 }

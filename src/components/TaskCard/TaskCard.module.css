@@ -1,0 +1,42 @@
+.checkd {
+    position: relative;
+    top: 5px;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.name {
+    font-size: 16px;
+}
+
+.finished {
+    opacity: 0.5;
+}
+
+.notChecked {
+    position: relative;
+    cursor: pointer;
+    width: 17px;
+    height: 17px;
+    border-radius: 50%;
+    border: 1px solid #cacaca;
+    display: inline-block;
+    margin-left: 2px;
+    margin-top: 2px;
+}
+
+.label {
+    padding-left: 35px;
+    color: gray;
+    display: inline-block;
+    position: relative;
+}
+
+.label::before {
+    content: '';
+    display: list-item;
+    list-style-type: disc;
+    list-style-position: inside;
+    position: absolute;
+    left: 20px;
+}

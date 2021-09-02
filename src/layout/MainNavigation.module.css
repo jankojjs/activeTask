@@ -1,0 +1,151 @@
+.navmob {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    background-color: #1976d2;
+    padding: 10px 20px;
+}
+
+.wrap {
+    display: grid;
+    max-width: 480px;
+    margin: 0 auto;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.item {
+    cursor: pointer;
+}
+
+.icon {
+    color: #cacaca;
+}
+
+.item:hover .icon {
+    color: white;
+}
+
+@media only screen and (min-width: 600px)  {
+    .navmob {
+        display: none;
+    }
+}
+
+.item a {
+    padding: 20px;
+}
+
+.others {
+    position: relative;
+    margin-top: -10px;
+    margin-bottom: -20px;
+    padding-top: 10px;
+}
+
+.others:hover .modal {
+    display: block;
+}
+
+.modal {
+    display: none;
+    position: absolute;
+    bottom: 55px;
+    right: 0px;
+    border-radius: 4px;
+    border: 1px solid #cacaca;
+    z-index: 3;
+}
+
+.modal ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background: white;
+    width: 150px;
+}
+
+.modal ul li {
+    text-align: left;
+    padding: 0;
+}
+
+.modal ul li a {
+    padding: 10px 15px;
+    text-decoration: none;
+    color: #615d5d;
+    display: block;
+}
+
+.span {
+    margin-right: 10px;
+}
+
+.modal ul li a:hover {
+    color: black;
+}
+
+.modal ul li a:hover .smicon {
+    color: black;
+}
+
+.modal ul li:last-child {
+    padding: 10px 15px;
+}
+
+.smicon {
+    color: #615d5d;
+}
+
+
+@media only screen and (max-width: 600px)  {
+    .navd {
+        display: none;
+    }
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #80c271;
+    font-size: 18px;
+    display: grid;
+    place-items: center;
+    margin: 0 auto 40px;
+}
+
+.navd {
+    height: 100%;
+}
+
+.dwrap {
+    height: 100%;
+    background: white;
+    border-right: 1px solid #cacaca;
+    padding-top: 20px;
+}
+
+.dicon {
+    color: #cacaca;
+    margin: 0 auto;
+    display: block;
+}
+
+.dlinks {
+    cursor: pointer;
+}
+
+.dlinks a {
+    padding: 20px;
+    display: block;
+}
+
+.dlogout {
+    margin-top: 60px;
+}
+
+.dlinks a:hover .dicon {
+    color: #1976d2;
+}

@@ -1,0 +1,9 @@
+.wrap {
+    padding: 20px 20px 80px 20px;
+}
+
+@media only screen and (min-width: 600px) {
+    .wrap {
+        padding: 20px 0;
+    }
+}

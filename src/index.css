@@ -1,0 +1,59 @@
+html, body, #root, .App {
+  height: 100%;
+}
+
+#root > div:first-child {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #f4f5f7;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.btn {
+  width: unset;
+  border: 1px solid #1976d2;
+  background: #1976d2;
+  padding: 10px 15px;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  display: inline-block;
+  margin-right: 20px;
+  font-weight: bold;
+}
+
+.btn:hover {
+  background: #004ba0;
+  border: 1px solid #004ba0;
+}
+
+.alt {
+  width: unset;
+  border: 1px solid #1976d2;
+  color: #1976d2;
+  background: rgba(0,0,0,0);
+  padding: 10px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  display: inline-block;
+  margin-right: 20px;
+  font-weight: bold;
+}
+
+.alt:hover {
+  background: #1976d2;
+  border: 1px solid #1976d2;
+  color: white;
+}

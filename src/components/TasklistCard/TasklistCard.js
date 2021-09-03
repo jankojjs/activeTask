@@ -6,12 +6,14 @@ import TaskCard from '../TaskCard/TaskCard';
 import Backdrop from '../Backdrop/Backdrop';
 import EditTasklistModal from '../EditTasklistModal/EditTasklistModal';
 import TasklistDeleteModal from '../TasklistDeleteModal/TasklistDeleteModal';
+import NewTaskForm from '../NewTaskForm/NewTaskForm';
 
 function TasklistCard(props) {
     const [allTasks, setAllTasks] = useState([]);
     const [removeList, setRemoveList] = useState(false);
     const [editList, setEditList] = useState(false);
     const [listName, setListName] = useState(props.tasklist_name);
+    const [newTaskFormClickListener, setNewTaskFormClickListener] = useState(false);
 
     useEffect(() => {
         setAllTasks([...props.tasklist_tasks]);
@@ -43,6 +45,14 @@ function TasklistCard(props) {
         setRemoveList(false);
     }
 
+    function openNewTaskForm() {
+        setNewTaskFormClickListener(true);
+    }
+
+    function closeNewTaskForm() {
+        setNewTaskFormClickListener(false);
+    }
+
     return (
     <div className={classes.tl}>
         <div>
@@ -56,16 +66,16 @@ function TasklistCard(props) {
                 </div>
             </span>
             <ul className={classes.list}>
-                <li className={classes.listItem}>
                     {allTasks && allTasks.map((individualTaskCard) => {
                         return (
-                            <TaskCard key={individualTaskCard.task_id} taskId={individualTaskCard.task_id} name={individualTaskCard.task_name} label={individualTaskCard.task_label} active={individualTaskCard.task_active}/>
+                            <li className={classes.listItem} key={individualTaskCard.task_id}>
+                                <TaskCard key={individualTaskCard.task_id} taskId={individualTaskCard.task_id} name={individualTaskCard.task_name} label={individualTaskCard.task_label} active={individualTaskCard.task_active}/>
+                            </li>
                         )
                     })
                 }
-                    {!allTasks[0] && <NewTaskButton />}
-                </li>
             </ul>
+            { newTaskFormClickListener ?  <NewTaskForm key={props.tasklist_id} /> : <NewTaskButton key={props.tasklist_id} onClick={openNewTaskForm}/> }
         </div>
         { removeList && <Backdrop onCancel={removeListClose}/> }
         { removeList && <TasklistDeleteModal onCancel={removeListClose} onDelete={props.onDelete} list_id={props.tasklist_id}/> }

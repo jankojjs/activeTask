@@ -75,7 +75,7 @@ function TasklistCard(props) {
                     })
                 }
             </ul>
-            { newTaskFormClickListener ?  <NewTaskForm key={props.tasklist_id} /> : <NewTaskButton key={props.tasklist_id} onClick={openNewTaskForm}/> }
+            { newTaskFormClickListener ?  <NewTaskForm key={props.tasklist_id} onCancel={closeNewTaskForm} /> : <NewTaskButton key={props.tasklist_id} onClick={openNewTaskForm}/> }
         </div>
         { removeList && <Backdrop onCancel={removeListClose}/> }
         { removeList && <TasklistDeleteModal onCancel={removeListClose} onDelete={props.onDelete} list_id={props.tasklist_id}/> }

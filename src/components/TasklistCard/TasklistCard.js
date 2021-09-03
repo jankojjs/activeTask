@@ -5,6 +5,7 @@ import { FiMoreHorizontal } from "react-icons/fi";
 import TaskCard from '../TaskCard/TaskCard';
 import Backdrop from '../Backdrop/Backdrop';
 import EditTasklistModal from '../EditTasklistModal/EditTasklistModal';
+import TasklistDeleteModal from '../TasklistDeleteModal/TasklistDeleteModal';
 
 function TasklistCard(props) {
     const [allTasks, setAllTasks] = useState([]);
@@ -67,6 +68,7 @@ function TasklistCard(props) {
             </ul>
         </div>
         { removeList && <Backdrop onCancel={removeListClose}/> }
+        { removeList && <TasklistDeleteModal onCancel={removeListClose} onDelete={props.onDelete} list_id={props.tasklist_id}/> }
         { editList && <Backdrop onCancel={editListClose}/> }
         { editList && <EditTasklistModal list_id={props.tasklist_id} onUpdate={renameList} onCancel={editListClose} /> }
     </div>

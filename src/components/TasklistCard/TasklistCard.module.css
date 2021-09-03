@@ -23,6 +23,35 @@
 }
 
 .more {
-    padding-left: 20px;
+    position: relative;
+    padding: 20px;
     cursor: pointer;
+}
+
+.more:hover .moreOptions {
+    display: block;
+}
+
+.moreOptions {
+    display: none;
+    position: absolute;
+    border-radius: 4px;
+    border: 1px solid #cacaca;
+    left: 0;
+    background-color: white;
+    z-index: 1;
+}
+
+.option {
+    padding: 5px 15px;
+    cursor: pointer;
+}
+
+.option:first-child {
+    border-bottom: 1px solid gray;
+}
+
+.option:hover {
+    background: #1976d2;
+    color: white;
 }

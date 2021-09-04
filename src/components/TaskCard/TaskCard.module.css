@@ -30,6 +30,8 @@
     color: gray;
     display: inline-block;
     position: relative;
+    font-size: 12px;
+    bottom: 1px;
 }
 
 .label::before {
@@ -39,4 +41,5 @@
     list-style-position: inside;
     position: absolute;
     left: 20px;
+    bottom: 1px;
 }

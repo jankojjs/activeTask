@@ -38,12 +38,12 @@ function NewTaskForm(props) {
         .then((body) => {
             if(body !== undefined) {
                 props.onSuccess(newObj);
+                props.onCancel();
             } else {
                 alert('Sorry there was an error while trying to create a new task.')
             }
         })
     }
-
     
     function changeEditorState(newValue) {
         setEditorState(newValue);

@@ -1,11 +1,12 @@
 import React from 'react';
 import { DefaultEditor } from 'react-simple-wysiwyg';
 
-function Editor() {
+function Editor(props) {
   const [html, setHtml] = React.useState('Enter task description here.');
   
   function onChange(e) {
     setHtml(e.target.value);
+    props.onUpdate(e.target.value);
   }
 
   return (

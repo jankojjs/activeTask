@@ -64,3 +64,13 @@ code {
   border: 1px solid #1976d2;
   color: white;
 }
+
+.completed {
+  display: inline-block;
+  opacity: 0.5;
+  text-decoration: line-through;
+}
+
+.notcompleted {
+  display: inline-block;
+}

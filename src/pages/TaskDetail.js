@@ -1,12 +1,13 @@
 import { useState, useEffect } from 'react';
 import { useLocation, useHistory } from 'react-router'; 
+import PageDetailCard from '../components/PageDetailCard/PageDetailCard';
 
 function TaskDetailPage() {
     const location = useLocation();
     const [taskId] = useState(location.pathname.replace('/task/',''));
-    // console.log(localStorage.getItem('user_id'));
     const history = useHistory();
-    const [taskObj, setTaskObj] = useState({})
+    const [taskObj, setTaskObj] = useState({});
+    const [notLoading, setNotLoading] = useState(false);
 
     useEffect(() => {
         fetchTaskHandler();
@@ -22,14 +23,14 @@ function TaskDetailPage() {
                 history.push('/');
             } else {
                 setTaskObj(data[0]);
+                setNotLoading(true);
             }
         })
     }
-    // add load state to hide initialy on force hack to unpermited task
+
     return (
         <div>
-            <div>TaskDetail</div>
-            <div>{taskObj.task_name}</div>
+            { notLoading ? <PageDetailCard taskObj={taskObj} /> : <div>Loading...</div> }
         </div>
     )
 }

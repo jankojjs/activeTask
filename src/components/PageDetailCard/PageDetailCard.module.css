@@ -1,0 +1,54 @@
+.card {
+    border: 1px solid #cacaca;
+    border-radius: 4px;
+    background-color: white;
+    padding: 20px;
+    margin: 20px;
+}
+
+.notChecked {
+    cursor: pointer;
+    width: 17px;
+    height: 17px;
+    border-radius: 50%;
+    border: 1px solid #cacaca;
+    display: inline-block;
+    margin-right: 15px;
+    position: relative;
+    top: 3px;
+}
+
+.taskName {
+    display: inline-block;
+}
+
+.active {
+    display: inline-block;
+}
+
+.completed {
+    display: inline-block;
+}
+
+.completed {
+    opacity: 0.5;
+}
+
+.checked {
+    position: relative;
+    top: 4px;
+    display: inline-block;
+    margin-right: 15px;
+}
+
+.back {
+    color: gray;
+    cursor: pointer;
+    padding: 20px 0;
+}
+
+.backIcon {
+    position: relative;
+    top: 5px;
+    padding-right: 10px;
+}

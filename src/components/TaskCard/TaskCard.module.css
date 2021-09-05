@@ -9,6 +9,11 @@
     font-size: 16px;
 }
 
+.linkItem {
+    color: black;
+    text-decoration: none;
+}
+
 .finished {
     opacity: 0.5;
 }

@@ -27,6 +27,9 @@ function App() {
           <Route path='/project/:projectId' exact>
           {loginCond ? <ProjectDetailPage /> : <Redirect to='/login' />}
           </Route>
+          <Route path='/task/:taskId' exact>
+          {loginCond ? <TaskDetailPage /> : <Redirect to='/login' />}
+          </Route>
           <Route path='/settings' exact>
           {loginCond ? <SettingsPage /> : <Redirect to='/login' />}
           </Route>

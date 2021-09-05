@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import classes from './TaskCard.module.css';
 import { AiFillCheckCircle } from "react-icons/ai";
+import { Link } from 'react-router-dom';
 
 function TaskCard(props) {
     const [checked, setChecked] = useState(props.active);
@@ -16,7 +17,7 @@ function TaskCard(props) {
             setChecked('1');
         }
         fetch(
-            'https://jjsolutions.rs/taskcompleteapi.php?task_id='+props.taskId+'&task_active='+newCheckValue
+            'https://jjsolutions.rs/api/taskcompleteapi.php?task_id='+props.taskId+'&task_active='+newCheckValue
         )
         .then(response => response.json())
         .then(data => {
@@ -27,12 +28,14 @@ function TaskCard(props) {
     }
 
     return (
-        <div className={`${checked === '0' && classes.finished}`}>
+        <div className={`${ checked === '0' ? classes.finished : '' }`}>
             <span onClick={checkTaskHandler} className={classes.checkd}>
                 { checked==='0' ? <AiFillCheckCircle size={22} color={'green'} /> : <span className={classes.notChecked}></span>}
             </span>
-            <span className={classes.name}>{props.name}</span>
-            { label !== null && <span className={classes.label}>{label}</span> }
+            <Link className={classes.linkItem} to={'/task/' + props.taskId}>
+                <span className={classes.name}>{props.name}</span>
+                { label && <span className={classes.label}>{label}</span> }
+            </Link>
         </div>
     )
 }

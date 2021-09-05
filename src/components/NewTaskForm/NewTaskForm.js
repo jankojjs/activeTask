@@ -13,7 +13,7 @@ function NewTaskForm(props) {
         const chosenTaskLabel = taskLabelInput.current.value;
         const currentListIdValue = props.currentListId;
 
-        const url = 'https://jjsolutions.rs/newtaskapi.php';
+        const url = 'https://jjsolutions.rs/api/newtaskapi.php';
         const formData = new FormData();
         formData.append('list_id', currentListIdValue);
         formData.append('task_name', enteredTaskName);
@@ -52,9 +52,9 @@ function NewTaskForm(props) {
     return (
     <div>
         <form className={classes.wrap}>
-            <input ref={taskNameInput} type='text' placeholder='Task name' required />
+            <input ref={taskNameInput} type='text' placeholder='Task name' required autoComplete='off' />
             <Editor onUpdate={changeEditorState}/>
-            <select ref={taskLabelInput}>
+            <select className={classes.select} ref={taskLabelInput}>
                 <option value=''>None</option>
                 <option value='In progress'>In progress</option>
                 <option value='Done'>Done</option>

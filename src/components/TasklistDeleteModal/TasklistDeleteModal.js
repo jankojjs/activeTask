@@ -3,7 +3,7 @@ import classes from './TasklistDeleteModal.module.css';
 function TasklistDeleteModal(props) {
     function deleteListHandler() {
         fetch(
-            'https://jjsolutions.rs/deletetasklistapi.php?list_id='+props.list_id
+            'https://jjsolutions.rs/api/deletetasklistapi.php?list_id='+props.list_id
         ).then(response => response.json()).then(data => {
             if(data !== undefined) {
                 props.onDelete(props.list_id);

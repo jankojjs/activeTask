@@ -14,7 +14,7 @@ function ProjectsPage() {
     useEffect(() => {
         setIsLoading(true);
         fetch(
-            'http://jjsolutions.rs/projectsapi.php?user_id='+userId
+            'http://jjsolutions.rs/api/projectsapi.php?user_id='+userId
         ).then(response => {
             return response.json();
         }).then(data => {

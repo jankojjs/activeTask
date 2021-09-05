@@ -16,7 +16,7 @@ function LoginForm() {
         const enteredUsername = usernameInputRef.current.value;
         const enteredPwd = passwordInputRef.current.value;
 
-        const url='https://jjsolutions.rs/api.php';
+        const url='https://jjsolutions.rs/api/loginapi.php';
         const formData = new FormData();
         formData.append('username', enteredUsername);
         formData.append('password', enteredPwd);

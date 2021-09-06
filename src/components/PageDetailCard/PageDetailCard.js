@@ -3,6 +3,7 @@ import classes from './PageDetailCard.module.css';
 import { AiFillCheckCircle } from "react-icons/ai";
 import { useHistory } from 'react-router-dom';
 import { IoIosArrowDropleft } from "react-icons/io";
+import TimeTracking from '../TimeTracking/TimeTracking';
 
 function PageDetailCard(props) {
     const [inheritedTask,setInheritedTask] = useState(props.taskObj);
@@ -31,6 +32,8 @@ function PageDetailCard(props) {
             <div className={classes.right}>
                 <div>Tasklist: <span>{inheritedTask.list_name}</span></div>
                 <div>Label: <span>{inheritedTask.task_label !== '' ? inheritedTask.task_label : 'no label'}</span></div>
+                <div>Time tracking:</div>
+                <TimeTracking taskDetails={inheritedTask}/>
             </div>
         </div>
     )

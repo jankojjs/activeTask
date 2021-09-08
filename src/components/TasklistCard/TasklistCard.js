@@ -14,16 +14,11 @@ function TasklistCard(props) {
     const [editList, setEditList] = useState(false);
     const [listName, setListName] = useState(props.tasklist_name);
     const [newTaskFormClickListener, setNewTaskFormClickListener] = useState(false);
+    const [showAllTasks, setShowAllTasks] = useState(props.tasklist_tasks.length < 6);
 
     useEffect(() => {
         setAllTasks([...props.tasklist_tasks]);
     }, [props.tasklist_tasks])
-
-    useEffect(() => {
-        if(allTasks.length > 0) {
-            // console.log(allTasks)
-        }
-    }, [allTasks])
 
     function addToAllTasks(newObj) {
         setAllTasks([...allTasks, newObj]);
@@ -57,6 +52,14 @@ function TasklistCard(props) {
         setNewTaskFormClickListener(false);
     }
 
+    function seeAllTasksHandler() {
+        setShowAllTasks(true);
+    }
+
+    function seeLessTasksHandler() {
+        setShowAllTasks(false);
+    }
+
     return (
     <div className={classes.tl}>
         <div>
@@ -69,6 +72,7 @@ function TasklistCard(props) {
                     <div className={classes.option} onClick={removeListOpen}>Remove</div>
                 </div>
             </span>
+            { showAllTasks ? 
             <ul className={classes.list}>
                     {allTasks && allTasks.map((individualTaskCard) => {
                         return (
@@ -78,7 +82,17 @@ function TasklistCard(props) {
                         )
                     })
                 }
-            </ul>
+                {allTasks.length > 6 && <div className={classes.seeAllTasks} onClick={seeLessTasksHandler}>See less</div> }
+            </ul> : <ul className={classes.list}>
+                {allTasks.slice(0, 5).map((individualTaskCard)=> {
+                    return (
+                    <li className={classes.listItem} key={individualTaskCard.task_id}>
+                        <TaskCard key={individualTaskCard.task_id} taskId={individualTaskCard.task_id} name={individualTaskCard.task_name} label={individualTaskCard.task_label} active={individualTaskCard.task_active}/>
+                    </li>
+                    )
+                })}
+               <div className={classes.seeAllTasks} onClick={seeAllTasksHandler}>See all tasks</div>
+            </ul> }
             { newTaskFormClickListener ?  <NewTaskForm key={props.tasklist_id} currentListId={props.tasklist_id} onCancel={closeNewTaskForm} onSuccess={addToAllTasks}/> : <NewTaskButton key={props.tasklist_id} onClick={openNewTaskForm}/> }
         </div>
         { removeList && <Backdrop onCancel={removeListClose}/> }

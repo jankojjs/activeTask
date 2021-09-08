@@ -3,7 +3,7 @@ import { useState, useEffect, useContext } from 'react';
 import classes from './TimeTracking.module.css';
 
 function TimeTracking(props) {
-    const [isTracking, setIsTracking] = useState(false);
+    const [isTracking, setIsTracking] = useState(localStorage.getItem('active_task') === props.taskDetails.task_id);
     const [initialTime, setInitialTime] = useState(parseInt(props.taskDetails.task_time));
     const [formatedTime, setFormatedTime] = useState();
     const [formatedInitialTime, setFormatedInitialTime] = useState(new Date(initialTime * 1000).toISOString().substr(11, 5))
@@ -53,21 +53,25 @@ function TimeTracking(props) {
 
     function startTrackingHandler() {
         setIsTracking(true);
+        localStorage.setItem('active_task',props.taskDetails.task_id);
     }
 
     function stopTrackingHandler() {
+        localStorage.removeItem('active_task');
         setIsTracking(false);
     }
 
     function resetTrackingHandler() {
         setIsTracking(false);
         setCounter(0);
+        localStorage.removeItem('active_task');
     }
 
     function uploadTime() {
         updateTimeRecord();
         setIsTracking(false);
         setCounter(0);
+        localStorage.removeItem('active_task');
     }
 
     return (

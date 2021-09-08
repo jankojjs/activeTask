@@ -4,6 +4,9 @@ import classes from './TimeTracking.module.css';
 
 function TimeTracking(props) {
     const [isTracking, setIsTracking] = useState(false);
+    const [initialTime, setInitialTime] = useState(parseInt(props.taskDetails.task_time));
+    const [formatedTime, setFormatedTime] = useState();
+    const [formatedInitialTime, setFormatedInitialTime] = useState(new Date(initialTime * 1000).toISOString().substr(11, 5))
     if(localStorage.getItem(props.taskDetails.task_id) === null) {
         localStorage.setItem(props.taskDetails.task_id, 0);
     }
@@ -17,6 +20,14 @@ function TimeTracking(props) {
         };
     }, [isTracking,counter])
 
+    useEffect(() => {
+        setFormatedTime(new Date(counter * 1000).toISOString().substr(11, 5)) // use 8 as last digit to format as HH:MM:SS, now its HH:MM
+    }, [counter])
+
+    useEffect(() => {
+        setFormatedInitialTime(new Date(initialTime * 1000).toISOString().substr(11, 5))
+    }, [initialTime])
+
     function timeTick() {
         if(isTracking){
             setCounter(counter+1);
@@ -24,6 +35,20 @@ function TimeTracking(props) {
             setCounter(counter)
         }
         localStorage.setItem(props.taskDetails.task_id,counter);
+    }
+
+    function updateTimeRecord() {
+        const url = 'http://jjsolutions.rs/api/addtimeapi.php?time='+counter+'&task_id='+props.taskDetails.task_id;
+
+        fetch(url).then((response) => {
+            return response.json();
+        }).then((body)=>{
+            if(body !== undefined) {
+                setInitialTime(initialTime + counter)
+            } else {
+                alert('Sorry could not update time at this moment.')
+            }
+        })
     }
 
     function startTrackingHandler() {
@@ -39,19 +64,25 @@ function TimeTracking(props) {
         setCounter(0);
     }
 
+    function uploadTime() {
+        updateTimeRecord();
+        setIsTracking(false);
+        setCounter(0);
+    }
+
     return (
         <div className={classes.wrap}>
-            <div className={classes.top}>0:00h</div>
+            <div className={classes.top}>{formatedInitialTime}</div>
             <div className={classes.bot}>
                 <div className={classes.startTimer}>
                     { isTracking ? <span onClick={stopTrackingHandler}><AiFillPauseCircle color={'red'} size={28}/></span> : <span onClick={startTrackingHandler}><AiFillPlayCircle color={'green'} size={28}/></span> }
                 </div>
                 <div className={classes.botMid}>
-                    <span>{counter}</span>
+                    <span>{formatedTime}</span>
                     <span onClick={resetTrackingHandler} className={classes.reset}><AiOutlineClose size={24} onClick={resetTrackingHandler}/></span>
                 </div>
                 <div>
-                    <AiOutlineUpload size={27}/>
+                    <AiOutlineUpload size={27} onClick={uploadTime}/>
                 </div>
             </div>
         </div>

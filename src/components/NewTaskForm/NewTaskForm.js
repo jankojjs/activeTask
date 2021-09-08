@@ -35,8 +35,9 @@ function NewTaskForm(props) {
         .then((response) => {
             return response.json();
         })
-        .then((body) => {
-            if(body !== undefined) {
+        .then((data) => {
+            if(data !== undefined) {
+                newObj.task_id = data.task_id; 
                 props.onSuccess(newObj);
                 props.onCancel();
             } else {

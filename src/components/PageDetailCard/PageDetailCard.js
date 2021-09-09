@@ -31,7 +31,7 @@ function PageDetailCard(props) {
             </div>
             <div className={classes.right}>
                 <div>Tasklist: <span>{inheritedTask.list_name}</span></div>
-                <div>Label: <span>{inheritedTask.task_label !== '' ? inheritedTask.task_label : 'no label'}</span></div>
+                <div className={classes.labelGroup}>Label: <span>{inheritedTask.task_label !== '' ? inheritedTask.task_label : 'no label'}</span></div>
                 <div>Time tracking:</div>
                 <TimeTracking taskDetails={inheritedTask}/>
             </div>

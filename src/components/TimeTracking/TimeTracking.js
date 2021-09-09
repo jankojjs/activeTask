@@ -1,41 +1,31 @@
 import { AiFillPlayCircle, AiOutlineClose, AiOutlineUpload, AiFillPauseCircle } from "react-icons/ai";
 import { useState, useEffect, useContext } from 'react';
 import classes from './TimeTracking.module.css';
+import TimeContext from "../../store/time-context";
 
 function TimeTracking(props) {
-    const [isTracking, setIsTracking] = useState(localStorage.getItem('active_task') === props.taskDetails.task_id);
+    const TimeCtx = useContext(TimeContext);
+    const [isTracking, setIsTracking] = useState(TimeCtx.isTracking);
     const [initialTime, setInitialTime] = useState(parseInt(props.taskDetails.task_time));
     const [formatedTime, setFormatedTime] = useState();
     const [formatedInitialTime, setFormatedInitialTime] = useState(new Date(initialTime * 1000).toISOString().substr(11, 5))
     if(localStorage.getItem(props.taskDetails.task_id) === null) {
         localStorage.setItem(props.taskDetails.task_id, 0);
     }
-    const [counter, setCounter] = useState(parseInt(localStorage.getItem(props.taskDetails.task_id)));
+    const [counter, setCounter] = useState(TimeCtx.counter);
 
     useEffect(() => {
-        const interval = setInterval(() => {timeTick()}, 1000);
+        setCounter(localStorage.getItem(props.taskDetails.task_id))
+        isTrackingCheck();
+    },[TimeCtx])
 
-        return () => {
-          clearInterval(interval);
-        };
-    }, [isTracking,counter])
+    function isTrackingCheck() {
+        setIsTracking(localStorage.getItem('active_task')===props.taskDetails.task_id);
+    }
 
     useEffect(() => {
         setFormatedTime(new Date(counter * 1000).toISOString().substr(11, 5)) // use 8 as last digit to format as HH:MM:SS, now its HH:MM
     }, [counter])
-
-    useEffect(() => {
-        setFormatedInitialTime(new Date(initialTime * 1000).toISOString().substr(11, 5))
-    }, [initialTime])
-
-    function timeTick() {
-        if(isTracking){
-            setCounter(counter+1);
-        } else {
-            setCounter(counter)
-        }
-        localStorage.setItem(props.taskDetails.task_id,counter);
-    }
 
     function updateTimeRecord() {
         const url = 'http://jjsolutions.rs/api/addtimeapi.php?time='+counter+'&task_id='+props.taskDetails.task_id;
@@ -44,34 +34,31 @@ function TimeTracking(props) {
             return response.json();
         }).then((body)=>{
             if(body !== undefined) {
-                setInitialTime(initialTime + counter)
+                setFormatedInitialTime(new Date((initialTime + parseInt(counter)) * 1000).toISOString().substr(11, 5))
             } else {
                 alert('Sorry could not update time at this moment.')
             }
         })
     }
-
-    function startTrackingHandler() {
-        setIsTracking(true);
-        localStorage.setItem('active_task',props.taskDetails.task_id);
-    }
-
-    function stopTrackingHandler() {
-        localStorage.removeItem('active_task');
-        setIsTracking(false);
-    }
-
     function resetTrackingHandler() {
         setIsTracking(false);
-        setCounter(0);
+        TimeCtx.resetCounting(props.taskDetails.task_id);
         localStorage.removeItem('active_task');
     }
 
     function uploadTime() {
         updateTimeRecord();
         setIsTracking(false);
-        setCounter(0);
+        TimeCtx.resetCounting(props.taskDetails.task_id);
         localStorage.removeItem('active_task');
+    }
+
+    function plusClick(){
+        TimeCtx.addTimedTask(props.taskDetails.task_id)
+    }
+
+    function pauseClick() {
+        TimeCtx.pauseCounting();
     }
 
     return (
@@ -79,7 +66,7 @@ function TimeTracking(props) {
             <div className={classes.top}>{formatedInitialTime}</div>
             <div className={classes.bot}>
                 <div className={classes.startTimer}>
-                    { isTracking ? <span onClick={stopTrackingHandler}><AiFillPauseCircle color={'red'} size={28}/></span> : <span onClick={startTrackingHandler}><AiFillPlayCircle color={'green'} size={28}/></span> }
+                    { isTracking ? <span onClick={pauseClick}><AiFillPauseCircle color={'red'} size={28}/></span> : <span onClick={plusClick}><AiFillPlayCircle color={'green'} size={28}/></span> }
                 </div>
                 <div className={classes.botMid}>
                     <span>{formatedTime}</span>
@@ -88,6 +75,10 @@ function TimeTracking(props) {
                 <div>
                     <AiOutlineUpload size={27} onClick={uploadTime}/>
                 </div>
+            </div>
+            <div className={classes.debugTools}>
+                <div onClick={plusClick}>PLUS</div>
+                <div onClick={pauseClick}>Pause</div>
             </div>
         </div>
     )

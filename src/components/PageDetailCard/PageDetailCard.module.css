@@ -69,3 +69,12 @@
 .labelGroup {
     padding: 15px 0;
 }
+
+.delete {
+    display: inline-block;
+    position: relative;
+    top: 6px;
+    padding-left: 10px;
+    margin-left: 20px;
+    cursor: pointer;
+}

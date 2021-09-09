@@ -25,6 +25,7 @@ function PageDetailCard(props) {
                     <span className={classes.backIcon}><IoIosArrowDropleft size={22}/></span>
                     {inheritedTask.project_name}
                 </div>
+                <div>Task description:</div>
                 <div className={classes.taskDesc} dangerouslySetInnerHTML={{ __html: inheritedTask.task_description }}>
                     
                 </div>

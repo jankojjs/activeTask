@@ -6,7 +6,7 @@ function DeleteProjectModal(props) {
 
     function deleteProject() {
         fetch(
-            'https://jjsolutions.rs/api/deleteprojectapi.php?project_id='+props.project_id
+            'https://jjsolutions.rs/api/deleteprojectapi2.php?project_id='+props.project_id
         ).then(response => response.json()).then(data => {
             if(data !== undefined) {
                 history.push('/projects');

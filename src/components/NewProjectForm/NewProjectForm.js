@@ -11,7 +11,7 @@ function NewProjectForm(props) {
         const enteredProjectName = projectNameInputRef.current.value;
 
         fetch(
-            'https://jjsolutions.rs/newprojectapi.php?user_id='+props.user_id+'&project_name='+enteredProjectName
+            'https://jjsolutions.rs/api/newprojectapi.php?user_id='+props.user_id+'&project_name='+enteredProjectName
         ).then(response => response.json()).then(data => {
             if(data !== undefined) {
                 history.push('/projects');

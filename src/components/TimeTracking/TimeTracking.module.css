@@ -5,6 +5,13 @@
     margin: 10px 0;
 }
 
+
+@media screen and (min-width: 780px) {
+    .wrap {
+        margin: 10px 0 10px auto;
+    }
+}
+
 .top {
     text-align: right;
     padding: 10px 15px;

@@ -6,6 +6,7 @@
     text-align: center;
     background-color: #1976d2;
     padding: 10px 20px;
+    z-index: 100;
 }
 
 .wrap {

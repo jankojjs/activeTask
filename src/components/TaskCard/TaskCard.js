@@ -28,7 +28,7 @@ function TaskCard(props) {
     }
 
     return (
-        <div className={`${ checked === '0' ? classes.finished : '' }`}>
+        <div className={`${ checked === '0' ? classes.finished : classes.notFinished }`}>
             <span onClick={checkTaskHandler} className={classes.checkd}>
                 { checked==='0' ? <AiFillCheckCircle size={22} color={'green'} /> : <span className={classes.notChecked}></span>}
             </span>

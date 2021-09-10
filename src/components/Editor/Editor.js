@@ -2,7 +2,7 @@ import React from 'react';
 import { DefaultEditor } from 'react-simple-wysiwyg';
 
 function Editor(props) {
-  const [html, setHtml] = React.useState('');
+  const [html, setHtml] = React.useState(props.defVal);
   
   function onChange(e) {
     setHtml(e.target.value);

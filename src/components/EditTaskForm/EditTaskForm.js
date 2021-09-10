@@ -1,11 +1,12 @@
+import classes from './EditTaskForm.module.css';
 import Editor from "../Editor/Editor";
-import classes from './NewTaskForm.module.css';
 import { useState, useRef } from 'react';
 
-function NewTaskForm(props) {
+function EditTaskForm(props) {
     const [editorState, setEditorState] = useState('');
     const taskNameInput = useRef();
     const taskLabelInput = useRef();
+    const [labelTask,setLabelTask] = useState(props.taskLabel);
 
     function newTaskFormHandler(e) {
         e.preventDefault();
@@ -51,25 +52,25 @@ function NewTaskForm(props) {
     }
 
     return (
-    <div>
-        <form className={classes.wrap}>
-            <input ref={taskNameInput} type='text' placeholder='Task name' required autoComplete='off' />
-            <Editor defVal={''} onUpdate={changeEditorState}/>
-            <select className={classes.select} ref={taskLabelInput}>
-                <option value=''>None</option>
-                <option value='In progress'>In progress</option>
-                <option value='Done'>Done</option>
-                <option value='Quickfix'>Quickfix</option>
-                <option value='On stage'>On stage</option>
-                <option value='Merged'>Merged</option>
-            </select>
-            <div className={classes.controls}>
-                <div onClick={props.onCancel} className='alt'>Cancel</div>
-                <input onClick={newTaskFormHandler} className='btn' value='Submit' type='submit'/>
-            </div> 
-        </form>
-    </div>
+        <div>
+            <form className={classes.wrap}>
+                <input value={props.taskName} ref={taskNameInput} type='text' required autoComplete='off' />
+                <Editor defVal={props.taskDescription} onUpdate={changeEditorState}/>
+                <select defaultValue={props.taskLabel} className={classes.select} ref={taskLabelInput}>
+                    <option value=''>None</option>
+                    <option value='In progress'>In progress</option>
+                    <option value='Done'>Done</option>
+                    <option value='Quickfix'>Quickfix</option>
+                    <option value='On stage'>On stage</option>
+                    <option value='Merged'>Merged</option>
+                </select>
+                <div className={classes.controls}>
+                    <div onClick={props.onCancel} className='alt'>Cancel</div>
+                    <input onClick={newTaskFormHandler} className='btn' value='Submit' type='submit'/>
+                </div> 
+            </form>
+        </div>
     )
 }
 
-export default NewTaskForm;
+export default EditTaskForm;

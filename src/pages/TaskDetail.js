@@ -4,14 +4,21 @@ import PageDetailCard from '../components/PageDetailCard/PageDetailCard';
 
 function TaskDetailPage() {
     const location = useLocation();
-    const [taskId] = useState(location.pathname.replace('/task/',''));
+    const [taskId, setTaskId] = useState(location.pathname.replace('/task/',''));
     const history = useHistory();
     const [taskObj, setTaskObj] = useState({});
     const [notLoading, setNotLoading] = useState(false);
 
     useEffect(() => {
+       return history.listen((location) => { 
+          setTaskId(location.pathname.replace('/task/',''));
+          setNotLoading(false);
+        }) 
+    },[history]) 
+
+    useEffect(() => {
         fetchTaskHandler();
-    }, [])
+    }, [taskId])
 
     function fetchTaskHandler() {
         fetch(

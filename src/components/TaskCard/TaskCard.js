@@ -7,6 +7,23 @@ function TaskCard(props) {
     const [checked, setChecked] = useState(props.active);
     const [label, setLabel] = useState(props.label);
     let newCheckValue;
+    let labelColor;
+
+    if(label==='Quickfix') {
+        labelColor = 'red';
+    }
+    if(label==='In progress') {
+        labelColor = 'teal';
+    }
+    if(label==='On stage') {
+        labelColor = 'blue';
+    }
+    if(label==='Done') {
+        labelColor = 'lightgreen';
+    }
+    if(label==='Merged') {
+        labelColor = 'orange';
+    }
 
     function checkTaskHandler() {
         if(checked === '1') {
@@ -34,7 +51,7 @@ function TaskCard(props) {
             </span>
             <Link className={classes.linkItem} to={'/task/' + props.taskId}>
                 <span className={classes.name}>{props.name}</span>
-                { label && <span className={classes.label}>{label}</span> }
+                { label && <span className={classes.label} style={{color:labelColor}}>{label}</span> }
             </Link>
         </div>
     )

@@ -54,7 +54,7 @@ function EditTaskForm(props) {
     return (
         <div>
             <form className={classes.wrap}>
-                <input value={props.taskName} ref={taskNameInput} type='text' required autoComplete='off' />
+                <input defaultValue={props.taskName} ref={taskNameInput} type='text' required autoComplete='off' />
                 <Editor defVal={props.taskDescription} onUpdate={changeEditorState}/>
                 <select defaultValue={props.taskLabel} className={classes.select} ref={taskLabelInput}>
                     <option value=''>None</option>

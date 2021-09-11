@@ -17,6 +17,7 @@ function TasklistCard(props) {
     const [showAllTasks, setShowAllTasks] = useState(props.tasklist_tasks.length < 6);
     const [activeTaskCounter, setActiveTaskCounter] = useState(0);
     const [activeTasks, setActiveTasks] = useState([]);
+    const [totalTasks, setTotalTasks] = useState(props.tasklist_tasks.length);
 
     useEffect(() => {
         setAllTasks([...props.tasklist_tasks]);
@@ -33,6 +34,7 @@ function TasklistCard(props) {
 
     function addToAllTasks(newObj) {
         setAllTasks([...allTasks, newObj]);
+        newTaskCreateHandler();
     }
 
     function renameList(newName){
@@ -71,11 +73,16 @@ function TasklistCard(props) {
         setShowAllTasks(false);
     }
 
+    function newTaskCreateHandler() {
+        setActiveTaskCounter(activeTaskCounter + 1);
+        setTotalTasks(totalTasks + 1);
+    }
+
     return (
     <div className={classes.tl}>
         <div>
             <span className={classes.tlName}>{listName}</span>
-            <span className={classes.count}>{activeTaskCounter} out of {props.tasklist_tasks.length} open</span>
+            <span className={classes.count}>{activeTaskCounter} out of {totalTasks} open</span>
             <span className={classes.more}>
                 <FiMoreHorizontal />
                 <div className={classes.moreOptions}>

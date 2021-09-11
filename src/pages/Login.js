@@ -3,7 +3,7 @@ import classes from './Login.module.css';
 
 function LoginPage() {
     return (
-        <div>
+        <div className={classes.loginCard}>
             <h2 className={classes.headline}>Welcome to activeTask</h2>
             <p className={classes.text}>Please enter your login credentials.</p>
             <LoginForm />

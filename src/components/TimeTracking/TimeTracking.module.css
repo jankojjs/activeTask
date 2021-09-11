@@ -16,6 +16,7 @@
     text-align: right;
     padding: 10px 15px;
     border-bottom: 1px solid #cacaca;
+    background-color: lightblue;
 }
 
 .bot {
@@ -38,9 +39,16 @@
 .startTimer {
     cursor: pointer;
     position: relative;
-    top: 3px;
+    top: 2px;
 }
 
 .debugTools {
     display: none;
+}
+
+.uploadBtn {
+    cursor: pointer;
+    position: relative;
+    top: 3px;
+
 }

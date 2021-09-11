@@ -22,7 +22,7 @@ function EditTasklistModal(props) {
 
     return (
         <div className={classes.card}>
-            <form>
+            <form className={classes.form}>
             <input type='text' name='username' placeholder='Enter new tasklist name' required ref={listRenameInputRef} autoComplete='off' />
             <button className='alt' onClick={props.onCancel}>Cancel</button>
             <input type='submit' className='btn' value='Create' onClick={renameListHandler}/>

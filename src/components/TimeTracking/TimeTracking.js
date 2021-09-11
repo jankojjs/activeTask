@@ -69,11 +69,11 @@ function TimeTracking(props) {
                     { isTracking ? <span onClick={pauseClick}><AiFillPauseCircle color={'red'} size={28}/></span> : <span onClick={plusClick}><AiFillPlayCircle color={'green'} size={28}/></span> }
                 </div>
                 <div className={classes.botMid}>
-                    <span>{formatedTime}</span>
-                    <span onClick={resetTrackingHandler} className={classes.reset}><AiOutlineClose size={24} onClick={resetTrackingHandler}/></span>
+                    <span style={{ color: isTracking ? 'red' : '' }}>{formatedTime}</span>
+                    <span onClick={resetTrackingHandler} className={classes.reset}><AiOutlineClose size={22} onClick={resetTrackingHandler}/></span>
                 </div>
-                <div>
-                    <AiOutlineUpload size={27} onClick={uploadTime}/>
+                <div className={classes.uploadBtn}>
+                    <AiOutlineUpload size={25} onClick={uploadTime}/>
                 </div>
             </div>
             <div className={classes.debugTools}>

@@ -3,9 +3,19 @@
     font-weight: 900;
     padding: 0 20px;
     padding-top: 20px;
+    text-align: center;
 }
 
 .text {
-    padding: 0 20px;
     color: #6b6868;
+    text-align: center;
 }
+
+.loginCard {
+    position: absolute;
+    top: 40%;  
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    min-width: 260px;
+}
+

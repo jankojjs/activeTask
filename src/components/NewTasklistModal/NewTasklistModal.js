@@ -23,7 +23,7 @@ function NewTasklistModal(props) {
 
     return (
         <div className={classes.card}>
-            <form>
+            <form className={classes.form}>
             <input type='text' placeholder='Enter tasklist name' required ref={tasklistNameInputRef} autoComplete="off" />
             <button className='alt' onClick={props.onCancel}>Cancel</button>
             <input type='submit' className='btn' value='Create' onClick={newTasklistHandler}/>

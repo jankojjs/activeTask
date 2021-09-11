@@ -24,7 +24,7 @@ function NewProjectForm(props) {
 
     return (
         <div className={classes.card}>
-            <form>
+            <form className={classes.form}>
             <input type='text' placeholder='Enter project name' required ref={projectNameInputRef} autoComplete="off" />
             <button className='alt' onClick={props.onCancel}>Cancel</button>
             <input type='submit' className='btn' value='Create' onClick={newProjectHandler}/>

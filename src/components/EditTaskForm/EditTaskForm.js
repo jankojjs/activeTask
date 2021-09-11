@@ -3,31 +3,22 @@ import Editor from "../Editor/Editor";
 import { useState, useRef } from 'react';
 
 function EditTaskForm(props) {
-    const [editorState, setEditorState] = useState('');
+    const [editorState, setEditorState] = useState(props.taskDescription);
     const taskNameInput = useRef();
     const taskLabelInput = useRef();
     const [labelTask,setLabelTask] = useState(props.taskLabel);
 
     function newTaskFormHandler(e) {
         e.preventDefault();
-        const enteredTaskName = taskNameInput.current.value;
-        const chosenTaskLabel = taskLabelInput.current.value;
-        const currentListIdValue = props.currentListId;
+        const newTaskName = taskNameInput.current.value;
+        const newTaskLabel = taskLabelInput.current.value;
 
-        const url = 'https://jjsolutions.rs/api/newtaskapi.php';
+        const url = 'https://jjsolutions.rs/api/edittaskapi.php';
         const formData = new FormData();
-        formData.append('list_id', currentListIdValue);
-        formData.append('task_name', enteredTaskName);
+        formData.append('task_id', props.taskId);
+        formData.append('task_name', newTaskName);
         formData.append('task_description', editorState);
-        formData.append('task_label', chosenTaskLabel);
-
-        const newObj = {
-            'task_active': '1',
-            'task_description': editorState,
-            'task_id': '999',
-            'task_name': enteredTaskName,
-            'task_label': chosenTaskLabel
-        }
+        formData.append('task_label', newTaskLabel);
 
         fetch(url, {
             method: 'POST',
@@ -38,9 +29,8 @@ function EditTaskForm(props) {
         })
         .then((data) => {
             if(data !== undefined) {
-                newObj.task_id = data.task_id; 
-                props.onSuccess(newObj);
                 props.onCancel();
+                props.onSuc(newTaskName,editorState,newTaskLabel);
             } else {
                 alert('Sorry there was an error while trying to create a new task.')
             }

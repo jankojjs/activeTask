@@ -14,6 +14,15 @@ function PageDetailCard(props) {
     const history = useHistory();
     const [deleteModal, setDeleteModal] = useState(false);
     const [editForm, setEditForm] = useState(false);
+    const [taskLabel, setTaskLabel] = useState(inheritedTask.task_label);
+    const [taskDescription, setTaskDescription] = useState(inheritedTask.task_description);
+    const [taskName, setTaskName] = useState(inheritedTask.task_name);
+
+    function updateTaskInfo(newName,newDesc,newLabel) {
+        setTaskLabel(newLabel);
+        setTaskName(newName);
+        setTaskDescription(newDesc);
+    }
 
     function backBtnHandler() {
         history.push('/project/'+inheritedTask.project_id);
@@ -41,7 +50,7 @@ function PageDetailCard(props) {
                 <div className={classes.active}>
                     { inheritedTask.task_active ==='0' ? <span className={classes.checked}><AiFillCheckCircle size={22} color={'green'} /></span> : <span className={classes.notChecked}></span>}
                 </div>
-                <div className={`${inheritedTask.task_active ==='0' ? 'completed' : 'notcompleted' }`}>{inheritedTask.task_name}</div>
+                <div className={`${inheritedTask.task_active ==='0' ? 'completed' : 'notcompleted' }`}>{taskName}</div>
                 <div onClick={editFormOpen} className={classes.edit}><MdEdit size={23}/></div>
                 <div onClick={deleteHandler} className={classes.delete}><MdDelete size={23} /></div>
                 <div onClick={backBtnHandler} className={classes.back}>
@@ -49,16 +58,16 @@ function PageDetailCard(props) {
                     {inheritedTask.project_name}
                 </div>
             </div>
-            {editForm ? <EditTaskForm taskLabel={inheritedTask.task_label} taskName={inheritedTask.task_name} taskDescription={inheritedTask.task_description} onCancel={editFormClose}/> : 
+            {editForm ? <EditTaskForm onSuc={updateTaskInfo} taskId={inheritedTask.task_id} taskLabel={taskLabel} taskName={taskName} taskDescription={taskDescription} onCancel={editFormClose}/> : 
             <div className={classes.gridWrap}>
                 <div className={classes.left}>
                     <div>Task description:</div>
-                    <div className={classes.taskDesc} dangerouslySetInnerHTML={{ __html: inheritedTask.task_description }}>
+                    <div className={classes.taskDesc} dangerouslySetInnerHTML={{ __html: taskDescription }}>
                     </div>
                 </div>
                 <div className={classes.right}>
                     <div>Tasklist: <span>{inheritedTask.list_name}</span></div>
-                    <div className={classes.labelGroup}>Label: <span>{inheritedTask.task_label !== '' ? inheritedTask.task_label : 'no label'}</span></div>
+                    <div className={classes.labelGroup}>Label: <span>{taskLabel !== '' ? taskLabel : 'no label'}</span></div>
                     <div>Time tracking:</div>
                     <TimeTracking taskDetails={inheritedTask}/>
                 </div>

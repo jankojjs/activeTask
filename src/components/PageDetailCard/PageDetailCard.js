@@ -8,9 +8,10 @@ import { MdDelete, MdEdit } from "react-icons/md";
 import Backdrop from '../Backdrop/Backdrop';
 import DeleteTaskModal from '../DeleteTaskModal/DeleteTaskModal';
 import EditTaskForm from '../EditTaskForm/EditTaskForm';
+import TaskLabelDropdown from '../TaskLabelDropdown/TaskLabelDropdown';
 
 function PageDetailCard(props) {
-    const [inheritedTask,setInheritedTask] = useState(props.taskObj);
+    const [inheritedTask] = useState(props.taskObj);
     const history = useHistory();
     const [deleteModal, setDeleteModal] = useState(false);
     const [editForm, setEditForm] = useState(false);
@@ -67,7 +68,9 @@ function PageDetailCard(props) {
                 </div>
                 <div className={classes.right}>
                     <div>Tasklist: <span>{inheritedTask.list_name}</span></div>
-                    <div className={classes.labelGroup}>Label: <span>{taskLabel !== '' ? taskLabel : 'no label'}</span></div>
+                    <div className={classes.labelGroup}>Label: 
+                        <TaskLabelDropdown taskId={inheritedTask.task_id} label={inheritedTask.task_label} />
+                    </div>
                     <div>Time tracking:</div>
                     <TimeTracking taskDetails={inheritedTask}/>
                 </div>

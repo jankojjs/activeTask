@@ -1,0 +1,15 @@
+.controls {
+    padding-top: 20px;
+}
+
+.wrap {
+    max-width: 400px;
+}
+
+.select {
+    border: 1px solid #cacaca;
+    padding: 10px 15px;
+    border-radius: 4px;
+    margin-top: 20px;
+    cursor: pointer;
+}

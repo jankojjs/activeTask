@@ -5,6 +5,7 @@ import ProjectsPage from './pages/Projects';
 import ProjectDetailPage from './pages/ProjectDetail';
 import TaskDetailPage from './pages/TaskDetail';
 import SettingsPage from './pages/Settings';
+import MyProfilePage from './pages/MyProfile';
 import { useContext } from 'react';
 import LoginContext from './store/login-context';
 import Layout from './layout/Layout';
@@ -35,6 +36,9 @@ function App() {
           </Route>
           <Route path='/task' exact>
           {loginCond ? <TaskDetailPage /> : <Redirect to='/login' />}
+          </Route>
+          <Route path='/my-profile' exact>
+          {loginCond ? <MyProfilePage /> : <Redirect to='/login' />}
           </Route>
           <Route path='/login' exact>
             <LoginPage />

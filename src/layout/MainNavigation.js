@@ -3,7 +3,7 @@ import classes from './MainNavigation.module.css';
 import { BiClipboard } from "react-icons/bi";
 import { BsFillGridFill } from "react-icons/bs";
 import { IoIosNotifications } from "react-icons/io";
-import { FiAlignJustify } from "react-icons/fi";
+import { FiAlignJustify, FiUser } from "react-icons/fi";
 import { FaUserFriends } from "react-icons/fa";
 import { AiFillMessage } from "react-icons/ai";
 import { IoLogOutOutline } from "react-icons/io5";
@@ -33,8 +33,8 @@ function MainNavigation() {
                     </Link>
                 </div>
                 <div className={classes.item}>
-                    <Link to='/notifications'>
-                        <IoIosNotifications className={classes.icon} size={24} />
+                    <Link to='/my-profile'>
+                        <FiUser className={classes.icon} size={24} />
                     </Link>
                 </div>
                 <div className={`${classes.item} ${classes.others}`}>
@@ -78,8 +78,8 @@ function MainNavigation() {
                         </Link>
                     </div>
                     <div className={classes.ditem}>
-                        <Link to='/notifications'>
-                            <IoIosNotifications className={classes.dicon} size={28} />
+                        <Link to='/my-profile'>
+                            <FiUser className={classes.dicon} size={28} />
                         </Link>
                     </div>
                     <div className={classes.ditem}>

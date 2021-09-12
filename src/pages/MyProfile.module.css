@@ -1,0 +1,11 @@
+@media only screen and (max-width: 600px) {
+    .headline {
+        padding: 0 20px;
+        font-weight: 400;
+    }
+}
+
+.grid {
+    display:grid;
+    place-items: center;
+}

@@ -11,7 +11,7 @@ function ProjectStar(props) {
             projectStars = 0;
         }
         fetch(
-            'http://jjsolutions.rs/api/projectstarapi.php?star_value='+projectStars+'&project_id='+props.project_id
+            'https://jjsolutions.rs/api/projectstarapi.php?star_value='+projectStars+'&project_id='+props.project_id
         ).then(response => response.json()).then(data => {
             if(data !== undefined) {
                 history.push('/projects');

@@ -22,7 +22,7 @@ function TaskDetailPage() {
 
     function fetchTaskHandler() {
         fetch(
-            'http://jjsolutions.rs/api/singletaskapi.php?user_id='+localStorage.getItem("user_id")+'&task_id='+taskId
+            'https://jjsolutions.rs/api/singletaskapi.php?user_id='+localStorage.getItem("user_id")+'&task_id='+taskId
         )
         .then(response=>response.json())
         .then(data => {

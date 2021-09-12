@@ -28,7 +28,7 @@ function TimeTracking(props) {
     }, [counter])
 
     function updateTimeRecord() {
-        const url = 'http://jjsolutions.rs/api/addtimeapi.php?time='+counter+'&task_id='+props.taskDetails.task_id;
+        const url = 'https://jjsolutions.rs/api/addtimeapi.php?time='+counter+'&task_id='+props.taskDetails.task_id;
 
         fetch(url).then((response) => {
             return response.json();

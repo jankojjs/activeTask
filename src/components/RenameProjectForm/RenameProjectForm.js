@@ -11,7 +11,7 @@ function RenameProjectForm(props) {
         const enteredProjectRename = projectRenameInputRef.current.value;
 
         fetch(
-            'http://jjsolutions.rs/api/renameprojectapi.php?new_name='+enteredProjectRename+'&project_id='+props.project_id
+            'https://jjsolutions.rs/api/renameprojectapi.php?new_name='+enteredProjectRename+'&project_id='+props.project_id
         ).then(response => response.json()).then(data => {
             if(data !== undefined) {
                 history.push('/projects');

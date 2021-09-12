@@ -9,7 +9,7 @@ function EditTasklistModal(props) {
         const newListName = listRenameInputRef.current.value;
         
         fetch(
-            'http://jjsolutions.rs/api/editlistapi.php?new_name='+newListName+'&list_id='+props.list_id
+            'https://jjsolutions.rs/api/editlistapi.php?new_name='+newListName+'&list_id='+props.list_id
         ).then(response => response.json()).then(data => {
             if(data !== undefined) {
                 props.onUpdate(newListName);

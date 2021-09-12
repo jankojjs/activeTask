@@ -24,7 +24,7 @@ function ProjectDetailPage() {
 
     function fetchData() {
         fetch(
-            'http://jjsolutions.rs/api/singleprojectapi.php?user_id='+localStorage.getItem("user_id")+'&project_id='+projectId
+            'https://jjsolutions.rs/api/singleprojectapi.php?user_id='+localStorage.getItem("user_id")+'&project_id='+projectId
         ).then(response => {
             return response.json();
         }).then(data => {

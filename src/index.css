@@ -39,6 +39,7 @@ code {
   display: inline-block;
   margin-right: 20px;
   font-weight: bold;
+  text-decoration: none;
 }
 
 .btn:hover {
@@ -57,6 +58,7 @@ code {
   display: inline-block;
   margin-right: 20px;
   font-weight: bold;
+  text-decoration: none;
 }
 
 .alt:hover {

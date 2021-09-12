@@ -32,6 +32,9 @@ function LoginForm() {
                     localStorage.setItem('username',body.user.username);
                     localStorage.setItem('avatar',body.user.profile_image);
                     localStorage.setItem('verified',body.user.verified);
+                    localStorage.setItem('firstname',body.user.firstname);
+                    localStorage.setItem('lastname',body.user.lastname);
+                    localStorage.setItem('email',body.user.email);
                     history.push('/');
                 } else {
                     alert('Please check if you entered valid credentials.')

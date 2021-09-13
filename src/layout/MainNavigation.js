@@ -28,7 +28,7 @@ function MainNavigation() {
                     </Link>
                 </div>
                 <div className={classes.item}>
-                    <Link to='/work'>
+                    <Link to='/my-work'>
                         <BiClipboard className={classes.icon} size={24} />
                     </Link>
                 </div>
@@ -73,7 +73,7 @@ function MainNavigation() {
                         </Link>
                     </div>
                     <div className={classes.ditem}>
-                        <Link to='/work'>
+                        <Link to='/my-work'>
                             <BiClipboard className={classes.dicon} size={28} />
                         </Link>
                     </div>

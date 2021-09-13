@@ -6,6 +6,7 @@ import ProjectDetailPage from './pages/ProjectDetail';
 import TaskDetailPage from './pages/TaskDetail';
 import SettingsPage from './pages/Settings';
 import MyProfilePage from './pages/MyProfile';
+import MyWorkPage from './pages/MyWork';
 import { useContext } from 'react';
 import LoginContext from './store/login-context';
 import Layout from './layout/Layout';
@@ -26,19 +27,22 @@ function App() {
             {loginCond ? <ProjectsPage /> : <Redirect to='/login' />}
           </Route>
           <Route path='/project/:projectId' exact>
-          {loginCond ? <ProjectDetailPage /> : <Redirect to='/login' />}
+            {loginCond ? <ProjectDetailPage /> : <Redirect to='/login' />}
           </Route>
           <Route path='/task/:taskId' exact>
-          {loginCond ? <TaskDetailPage /> : <Redirect to='/login' />}
+            {loginCond ? <TaskDetailPage /> : <Redirect to='/login' />}
           </Route>
           <Route path='/settings' exact>
-          {loginCond ? <SettingsPage /> : <Redirect to='/login' />}
+            {loginCond ? <SettingsPage /> : <Redirect to='/login' />}
           </Route>
           <Route path='/task' exact>
-          {loginCond ? <TaskDetailPage /> : <Redirect to='/login' />}
+            {loginCond ? <TaskDetailPage /> : <Redirect to='/login' />}
           </Route>
           <Route path='/my-profile' exact>
-          {loginCond ? <MyProfilePage /> : <Redirect to='/login' />}
+            {loginCond ? <MyProfilePage /> : <Redirect to='/login' />}
+          </Route>
+          <Route path='/my-work' exact>
+            {loginCond ? <MyWorkPage />: <Redirect to='/login' />}
           </Route>
           <Route path='/login' exact>
             <LoginPage />
@@ -46,8 +50,8 @@ function App() {
           <Route>
             {loginCond ? <Redirect to='/'/> : <Redirect to='login'/> }
           </Route>
-          </Switch>
-        </Layout>
+        </Switch>
+      </Layout>
     </div>
   );
 }

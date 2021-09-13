@@ -1,0 +1,25 @@
+.cardWrap {
+    padding: 0 20px;
+}
+
+.pageHeadline {
+    font-weight: 400;
+}
+
+.card {
+    border: 1px solid #cacaca;
+    background: white;
+    border-radius: 4px;
+    padding: 15px 0;
+}
+
+.navItem {
+    padding-right: 15px;
+    padding: 15px 20px;
+    cursor: pointer;
+}
+
+.navItem:hover {
+    border-bottom: 2px solid blue;
+    color: blue;
+}

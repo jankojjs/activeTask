@@ -3,7 +3,7 @@ import { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 
 
-function MyProfileCard() {
+function MyProfileCard(props) {
     const [email, setEmail] = useState(localStorage.getItem('email'));
     const [firstname, setFirstname] = useState(localStorage.getItem('firstname'));
     const [lastname, setLastname] = useState(localStorage.getItem('lastname'));
@@ -11,6 +11,10 @@ function MyProfileCard() {
     const firstnameInput = useRef();
     const lastnameInput = useRef();
     const emailInput = useRef();
+
+    function pwdFormHandler() {
+        props.pwdFormClick();
+    }
 
     return (
         <div className={classes.container}>
@@ -25,7 +29,7 @@ function MyProfileCard() {
                         <div className={classes.imgLabel}>
                             Profile Photo
                         </div>
-                        <btn className='btn'>Choose file</btn>
+                        <button className='btn'>Choose file</button>
                     </div>
                 </div>
                 <div className={classes.label}>First Name*</div>
@@ -34,6 +38,7 @@ function MyProfileCard() {
                 <input className={classes.input} ref={lastnameInput} defaultValue={lastname} type='text' />
                 <div className={classes.label}>Email Address*</div>
                 <input className={classes.input} ref={emailInput} defaultValue={email} type='text' />
+                <div className={classes.changePwd} onClick={pwdFormHandler} >Change password</div>
                 <div className={classes.mainControls}>
                     <Link to='/' className='alt'>Cancel</Link>
                     <input type='submit' className='btn' value='Save'/>

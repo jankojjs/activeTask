@@ -1,0 +1,28 @@
+.scrollable {
+    padding: 0 20px;
+}
+
+.tableTop {
+    display: grid;
+    grid-template-columns: 200px 80px 80px 80px 80px 80px 80px 80px 80px 100px;
+}
+
+.tableBot {
+    display: grid;
+    grid-template-columns: 200px 80px 80px 80px 80px 80px 80px 80px 80px 100px;
+}
+
+.tableBot div {
+    border: 1px solid #cacaca;
+    padding: 10px 10px 20px;
+    background: #f6f6f9;
+    border-left: none;
+}
+
+.tableTop div {
+    padding: 10px;
+}
+
+.noStyle {
+    border: none !important;
+}

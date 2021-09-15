@@ -6,13 +6,14 @@ import TimeContext from "../../store/time-context";
 function TimeTracking(props) {
     const TimeCtx = useContext(TimeContext);
     const [isTracking, setIsTracking] = useState(TimeCtx.isTracking);
-    const [initialTime, setInitialTime] = useState(parseInt(props.taskDetails.task_time));
+    const [initialTime] = useState(parseInt(props.taskDetails.task_time));
     const [formatedTime, setFormatedTime] = useState();
     const [formatedInitialTime, setFormatedInitialTime] = useState(new Date(initialTime * 1000).toISOString().substr(11, 5))
     if(localStorage.getItem(props.taskDetails.task_id) === null) {
         localStorage.setItem(props.taskDetails.task_id, 0);
     }
     const [counter, setCounter] = useState(TimeCtx.counter);
+    const [taskName] = useState(props.taskDetails.task_name);
 
     useEffect(() => {
         setCounter(localStorage.getItem(props.taskDetails.task_id))
@@ -28,7 +29,7 @@ function TimeTracking(props) {
     }, [counter])
 
     function updateTimeRecord() {
-        const url = 'https://jjsolutions.rs/api/addtimeapi.php?time='+counter+'&task_id='+props.taskDetails.task_id;
+        const url = 'https://jjsolutions.rs/api/addtimeapi.php?time='+counter+'&task_id='+props.taskDetails.task_id+'&user_id='+localStorage.getItem('user_id')+'&task_name='+taskName
 
         fetch(url).then((response) => {
             return response.json();

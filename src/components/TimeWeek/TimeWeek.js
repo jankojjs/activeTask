@@ -1,6 +1,7 @@
 import classes from './TimeWeek.module.css';
 import { AiFillCaretLeft, AiFillCaretRight } from "react-icons/ai";
 import { useState, useEffect } from 'react';
+import TimedTasksList from '../TimedTasksList/TimedTasksList';
 
 function TimeWeek() {
     const dateObj = new Date();
@@ -19,6 +20,8 @@ function TimeWeek() {
     const [currentSat, setCurrentSat] = useState();
     const [currentSunMonth, setCurrentSunMonth] = useState();
     const [currentSatMonth, setCurrentSatMonth] = useState();
+    const [daysArray, setDaysArray] = useState([]);
+    const [tasksLoading, setTasksLoading] = useState(true);
 
     useEffect(() => {
         let selectedSunday = new Date();
@@ -44,13 +47,17 @@ function TimeWeek() {
         selectedSaturday.setDate(selectedSaturday.getDate()-currentDayInWeek+7*weekCounter+6);
         setCurrentSat(selectedSaturday.getDate());
         setCurrentSatMonth(getMonthHelper(selectedSaturday.getMonth()));
+        setDaysArray([(selectedSunday.toISOString()).substr(0,10),(selectedMonday.toISOString()).substr(0,10),(selectedTuesday.toISOString()).substr(0,10),(selectedWednesday.toISOString()).substr(0,10),(selectedThursday.toISOString()).substr(0,10),(selectedFriday.toISOString()).substr(0,10),(selectedSaturday.toISOString()).substr(0,10)]);
+        setTasksLoading(false);
     },[weekCounter])
 
     function goWeekBefore() {
+        setTasksLoading(true);
         setWeekCounter(weekCounter-1);
     }
 
     function goWeekNext() {
+        setTasksLoading(true);
         setWeekCounter(weekCounter+1);
     }
 
@@ -96,18 +103,7 @@ function TimeWeek() {
                 <div className={classes.noStyle}></div>
             </div>
             <div className={classes.tableTask}>
-                <div>
-                    <span>Task name</span>
-                </div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div className={classes.noStyle}></div>
+                { tasksLoading ? <div>Loading...</div> : <TimedTasksList arrayOfDays={daysArray}/> }
             </div>
         </div>
     )

@@ -1,0 +1,21 @@
+.table {
+    display: grid;
+    grid-template-columns: 200px 80px 80px 80px 80px 80px 80px 80px 80px 100px;
+}
+
+.cell {
+    border-right: 1px solid #cacaca;
+    border-bottom: 1px solid #cacaca;
+    display: grid;
+    place-items: center;
+    background: #ffffff;
+    border-left: none;
+}
+
+.cellName {
+    border-right: 1px solid #cacaca;
+    border-bottom: 1px solid #cacaca;
+    padding: 10px;
+    background: #f6f6f9;
+    border-left: none;
+}

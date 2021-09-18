@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react';
+import TimedTaskRow from '../TimedTaskRow/TimedTaskRow';
 
 function TimedTasksList(props) {
     const [days] = useState(props.arrayOfDays);
-    const [fetchedTasks, setFetchedTasks] = useState();
+    const [fetchedTasks, setFetchedTasks] = useState([]);
     const user_id = localStorage.getItem('user_id');
+    const [loading, setLoading] = useState(true);
     
     useEffect(() => {
         const day1=days[0];
@@ -18,6 +20,7 @@ function TimedTasksList(props) {
     },[props.arrayOfDays])
 
     function fetchTaskTimesByDays(user_id,day1,day2,day3,day4,day5,day6,day7) {
+        let newData = [];
         const url='https://jjsolutions.rs/api/timetracksapi.php';
         const formData = new FormData();
         formData.append('user_id', user_id);
@@ -35,7 +38,34 @@ function TimedTasksList(props) {
         })
         .then((body) => {
                 if(body !== undefined) {
-                    setFetchedTasks(body)
+                    // console.log(body.length)
+                    body.map((singleTasklton)=> {
+                        if(newData.indexOf(singleTasklton.taskName) !== -1){
+                            //colors contains the string "blue"
+                            console.log('test')
+
+                        }else{
+                            //colors does not contain the string "blue"
+                            newData.push({
+                                'timetrackId': singleTasklton.timetrackId,
+                                'taskName': singleTasklton.taskName,
+                                'days': [
+                                    {[singleTasklton.date]: singleTasklton.timeuploaded},
+                                ],
+                            })
+                        }
+                    })
+                    const result = newData.reduce((newData, curr) => {
+                    const { taskName, days, timetrackId } = curr;
+                    const findObj = newData.find((o) => o.taskName === taskName);
+                    if (!findObj) {
+                        newData.push({ taskName, days, timetrackId });
+                    } else {
+                        findObj.days.push(...days);
+                    }
+                    return newData;
+                    }, []);
+                    setFetchedTasks(result);
                 } else {
                     alert('Please check if you entered valid credentials.')
                 }
@@ -43,12 +73,15 @@ function TimedTasksList(props) {
     }
 
     useEffect(() => {
-        console.log(fetchedTasks);
         return fetchedTasks
     },[fetchedTasks])
 
     return (
-        <div>aaa</div>
+        <div>
+            {fetchedTasks.map((singleFetchedTask) => {
+                return <TimedTaskRow key={singleFetchedTask.timetrackId} singleTaskInfo={singleFetchedTask} days={days}/>
+            })}
+        </div>
     )
 }
 

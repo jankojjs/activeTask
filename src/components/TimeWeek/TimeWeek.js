@@ -22,6 +22,7 @@ function TimeWeek() {
     const [currentSatMonth, setCurrentSatMonth] = useState();
     const [daysArray, setDaysArray] = useState([]);
     const [tasksLoading, setTasksLoading] = useState(true);
+    const [daysForTimedRow, setDaysForTimedRow] = useState();
 
     useEffect(() => {
         let selectedSunday = new Date();
@@ -49,6 +50,7 @@ function TimeWeek() {
         setCurrentSatMonth(getMonthHelper(selectedSaturday.getMonth()));
         setDaysArray([(selectedSunday.toISOString()).substr(0,10),(selectedMonday.toISOString()).substr(0,10),(selectedTuesday.toISOString()).substr(0,10),(selectedWednesday.toISOString()).substr(0,10),(selectedThursday.toISOString()).substr(0,10),(selectedFriday.toISOString()).substr(0,10),(selectedSaturday.toISOString()).substr(0,10)]);
         setTasksLoading(false);
+        setDaysForTimedRow([currentSun,currentMon,currenTue,currentWed,currentThu,currentFri,currentSun]);
     },[weekCounter])
 
     function goWeekBefore() {

@@ -1,4 +1,5 @@
 import classes from './TimedTaskRow.module.css';
+import { Link } from 'react-router-dom';
 
 function TimedTaskRow(props) {
     const dataArr = [];
@@ -16,11 +17,10 @@ function TimedTaskRow(props) {
     return (
         <div className={classes.table}>
             <div className={classes.cellName}>
-                {props.singleTaskInfo.taskName}
+                <Link to={'/task/'+props.singleTaskInfo.taskId}>{props.singleTaskInfo.taskName}</Link>
             </div>
             {
                 props.days.map((oneWorkDay)=>{
-                    console.log(oneWorkDay)
                     return (
                         <div key={oneWorkDay} className={classes.cell}>{
                             dataArr.map((singleDataItem)=>{

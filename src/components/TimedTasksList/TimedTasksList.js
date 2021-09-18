@@ -40,15 +40,15 @@ function TimedTasksList(props) {
                 if(body !== undefined) {
                     // console.log(body.length)
                     body.map((singleTasklton)=> {
-                        if(newData.indexOf(singleTasklton.taskName) !== -1){
+                        if(newData.indexOf(singleTasklton.taskId) !== -1){
                             //colors contains the string "blue"
-                            console.log('test')
 
                         }else{
                             //colors does not contain the string "blue"
                             newData.push({
                                 'timetrackId': singleTasklton.timetrackId,
                                 'taskName': singleTasklton.taskName,
+                                'taskId': singleTasklton.taskId,
                                 'days': [
                                     {[singleTasklton.date]: singleTasklton.timeuploaded},
                                 ],
@@ -56,10 +56,10 @@ function TimedTasksList(props) {
                         }
                     })
                     const result = newData.reduce((newData, curr) => {
-                    const { taskName, days, timetrackId } = curr;
-                    const findObj = newData.find((o) => o.taskName === taskName);
+                    const { taskName, days, timetrackId, taskId } = curr;
+                    const findObj = newData.find((o) => o.taskId === taskId);
                     if (!findObj) {
-                        newData.push({ taskName, days, timetrackId });
+                        newData.push({ taskName, days, timetrackId, taskId });
                     } else {
                         findObj.days.push(...days);
                     }

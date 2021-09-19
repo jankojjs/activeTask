@@ -24,6 +24,20 @@ function TimeWeek() {
     const [tasksLoading, setTasksLoading] = useState(true);
     const [daysForTimedRow, setDaysForTimedRow] = useState();
 
+    //calculating
+    const [calcSun, setCalcSun] = useState(0);
+    const [calcMon, setCalcMon] = useState(0);
+    const [calcTue, setCalcTue] = useState(0);
+    const [calcWed, setCalcWed] = useState(0);
+    const [calcThu, setCalcThu] = useState(0);
+    const [calcFri, setCalcFri] = useState(0);
+    const [calcSat, setCalcSat] = useState(0);
+    const [calcTotal, setCalcTotal] = useState(0);
+    
+    useEffect(() => {
+        setCalcTotal(calcSun+calcMon+calcTue+calcWed+calcThu+calcFri+calcSat);
+    })
+
     useEffect(() => {
         let selectedSunday = new Date();
         selectedSunday.setDate(selectedSunday.getDate()-currentDayInWeek+7*weekCounter);
@@ -94,14 +108,14 @@ function TimeWeek() {
                     {/* <span>avatar</span> */}
                     <span>Janko Stanic</span>
                 </div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
+                <div>{calcSun}</div>
+                <div>{calcMon}</div>
+                <div>{calcTue}</div>
+                <div>{calcWed}</div>
+                <div>{calcThu}</div>
+                <div>{calcFri}</div>
+                <div>{calcSun}</div>
+                <div>{calcTotal}</div>
                 <div className={classes.noStyle}></div>
             </div>
             <div className={classes.tableTask}>

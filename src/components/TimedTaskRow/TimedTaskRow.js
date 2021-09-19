@@ -24,7 +24,13 @@ function TimedTaskRow(props) {
                     return (
                         <div key={oneWorkDay} className={classes.cell}>{
                             dataArr.map((singleDataItem)=>{
-                                return (singleDataItem[oneWorkDay])
+                                let timeConst = singleDataItem[oneWorkDay];
+                                var formatedTimeConst;
+                                if(timeConst !== undefined) {
+                                    let integerTimeSeconds = parseInt(timeConst);
+                                    formatedTimeConst = new Date(integerTimeSeconds*1000).toISOString().substr(11, 5);
+                                }
+                                return (formatedTimeConst)
                             })
                         }</div>
                     )

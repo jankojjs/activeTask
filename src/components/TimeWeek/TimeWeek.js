@@ -33,32 +33,34 @@ function TimeWeek() {
     const [calcFri, setCalcFri] = useState(0);
     const [calcSat, setCalcSat] = useState(0);
     const [calcTotal, setCalcTotal] = useState(0);
-    
+
     useEffect(() => {
         setCalcTotal(calcSun+calcMon+calcTue+calcWed+calcThu+calcFri+calcSat);
     })
 
+    // will refractor this, i promise
     useEffect(() => {
-        let selectedSunday = new Date();
+        let normalDate = new Date();
+        let selectedSunday = new Date(normalDate.getTime() - normalDate.getTimezoneOffset() * 60000);
         selectedSunday.setDate(selectedSunday.getDate()-currentDayInWeek+7*weekCounter);
         setCurrentSun(selectedSunday.getDate());
         setCurrentSunMonth(getMonthHelper(selectedSunday.getMonth()));
-        let selectedMonday = new Date();
+        let selectedMonday = new Date(normalDate.getTime() - normalDate.getTimezoneOffset() * 60000);
         selectedMonday.setDate(selectedMonday.getDate()-currentDayInWeek+7*weekCounter+1);
         setCurrentMon(selectedMonday.getDate());
-        let selectedTuesday = new Date();
+        let selectedTuesday = new Date(normalDate.getTime() - normalDate.getTimezoneOffset() * 60000);
         selectedTuesday.setDate(selectedTuesday.getDate()-currentDayInWeek+7*weekCounter+2);
         setCurrentTue(selectedTuesday.getDate());
-        let selectedWednesday = new Date();
+        let selectedWednesday = new Date(normalDate.getTime() - normalDate.getTimezoneOffset() * 60000);
         selectedWednesday.setDate(selectedWednesday.getDate()-currentDayInWeek+7*weekCounter+3);
         setCurrentWed(selectedWednesday.getDate());
-        let selectedThursday = new Date();
+        let selectedThursday = new Date(normalDate.getTime() - normalDate.getTimezoneOffset() * 60000);
         selectedThursday.setDate(selectedThursday.getDate()-currentDayInWeek+7*weekCounter+4);
         setCurrentThu(selectedThursday.getDate());
-        let selectedFriday = new Date();
+        let selectedFriday = new Date(normalDate.getTime() - normalDate.getTimezoneOffset() * 60000);
         selectedFriday.setDate(selectedFriday.getDate()-currentDayInWeek+7*weekCounter+5);
         setCurrentFri(selectedFriday.getDate());
-        let selectedSaturday = new Date();
+        let selectedSaturday = new Date(normalDate.getTime() - normalDate.getTimezoneOffset() * 60000);
         selectedSaturday.setDate(selectedSaturday.getDate()-currentDayInWeek+7*weekCounter+6);
         setCurrentSat(selectedSaturday.getDate());
         setCurrentSatMonth(getMonthHelper(selectedSaturday.getMonth()));
@@ -82,6 +84,9 @@ function TimeWeek() {
         return months[numb];
     }
 
+    function addToSun(time) {
+        setCalcSun(calcSun+time);
+    }
 
 // for db we need toIso and substr 0,10
 
@@ -114,12 +119,12 @@ function TimeWeek() {
                 <div>{calcWed}</div>
                 <div>{calcThu}</div>
                 <div>{calcFri}</div>
-                <div>{calcSun}</div>
+                <div>{calcSat}</div>
                 <div>{calcTotal}</div>
                 <div className={classes.noStyle}></div>
             </div>
             <div className={classes.tableTask}>
-                { tasksLoading ? <div>Loading...</div> : <TimedTasksList arrayOfDays={daysArray}/> }
+                { tasksLoading ? <div>Loading...</div> : <TimedTasksList arrayOfDays={daysArray} sundayCalc={addToSun}/> }
             </div>
         </div>
     )

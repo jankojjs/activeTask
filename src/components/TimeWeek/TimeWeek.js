@@ -1,6 +1,6 @@
 import classes from './TimeWeek.module.css';
 import { AiFillCaretLeft, AiFillCaretRight } from "react-icons/ai";
-import { useState, useEffect } from 'react';
+import { useContext,useState, useEffect } from 'react';
 import TimedTasksList from '../TimedTasksList/TimedTasksList';
 
 function TimeWeek() {
@@ -24,7 +24,7 @@ function TimeWeek() {
     const [tasksLoading, setTasksLoading] = useState(true);
     const [daysForTimedRow, setDaysForTimedRow] = useState();
     const [daysToCalc, setDaysToCalc] = useState([]);
-    const [updatePage, setUpdatePage] = useState(false);
+    const [toggle, setToggle] = useState(false);
 
     //calculating
     const [calcSun, setCalcSun] = useState(0);
@@ -35,10 +35,6 @@ function TimeWeek() {
     const [calcFri, setCalcFri] = useState(0);
     const [calcSat, setCalcSat] = useState(0);
     const [calcTotal, setCalcTotal] = useState(0);
-
-    // useEffect(() => {
-    //     setCalcTotal(calcSun+calcMon+calcTue+calcWed+calcThu+calcFri+calcSat);
-    // },[calcSun,calcMon,calcTue,calcWed,calcThu,calcFri,calcSat])
 
     // will refractor this, i promise
     useEffect(() => {
@@ -69,21 +65,70 @@ function TimeWeek() {
         setDaysArray([(selectedSunday.toISOString()).substr(0,10),(selectedMonday.toISOString()).substr(0,10),(selectedTuesday.toISOString()).substr(0,10),(selectedWednesday.toISOString()).substr(0,10),(selectedThursday.toISOString()).substr(0,10),(selectedFriday.toISOString()).substr(0,10),(selectedSaturday.toISOString()).substr(0,10)]);
         setTasksLoading(false);
         setDaysForTimedRow([currentSun,currentMon,currenTue,currentWed,currentThu,currentFri,currentSun]);
-        console.log(daysToCalc)
+        resetDaysInStorage();
+        setToggle(false);
     },[weekCounter])
+
+    function resetDaysInStorage() {
+        localStorage.setItem('Sun',0);
+        localStorage.setItem('Mon',0);
+        localStorage.setItem('Tue',0);
+        localStorage.setItem('Wed',0);
+        localStorage.setItem('Thu',0);
+        localStorage.setItem('Fri',0);
+        localStorage.setItem('Sat',0);
+        localStorage.setItem('Tot',0);
+    }
+
+    useEffect(() => {
+        if (parseInt(localStorage.getItem('Sun')) !== 0) {
+            setCalcSun(parseInt(localStorage.getItem('Sun'))) 
+        } else {
+            setCalcSun(parseInt(localStorage.getItem('Sun')))
+        }
+        if (parseInt(localStorage.getItem('Mon')) !== 0) {
+            setCalcMon(parseInt(localStorage.getItem('Mon'))) 
+        } else {
+            setCalcMon(parseInt(localStorage.getItem('Mon')))
+        }
+        if (parseInt(localStorage.getItem('Tue')) !== 0) {
+            setCalcTue(parseInt(localStorage.getItem('Tue'))) 
+        } else {
+            setCalcTue(parseInt(localStorage.getItem('Tue')))
+        }
+        if (parseInt(localStorage.getItem('Wed')) !== 0) {
+            setCalcWed(parseInt(localStorage.getItem('Wed'))) 
+        } else {
+            setCalcWed(parseInt(localStorage.getItem('Wed')))
+        }
+        if (parseInt(localStorage.getItem('Thu')) !== 0) {
+            setCalcThu(parseInt(localStorage.getItem('Thu'))) 
+        } else {
+            setCalcThu(parseInt(localStorage.getItem('Thu')))
+        }
+        if (parseInt(localStorage.getItem('Fri')) !== 0) {
+            setCalcFri(parseInt(localStorage.getItem('Fri'))) 
+        } else {
+            setCalcFri(parseInt(localStorage.getItem('Fri')))
+        }
+        if (parseInt(localStorage.getItem('Sat')) !== 0) {
+            setCalcSat(parseInt(localStorage.getItem('Sat'))) 
+        } else {
+            setCalcSat(parseInt(localStorage.getItem('Sat')))
+        }
+        setCalcTotal(parseInt(localStorage.getItem('Tot')))
+        }, [toggle,weekCounter])
 
     function goWeekBefore() {
         setTasksLoading(true);
         setWeekCounter(weekCounter-1);
         setDaysToCalc([]);
-        setUpdatePage(false);
     }
 
     function goWeekNext() {
         setTasksLoading(true);
         setWeekCounter(weekCounter+1);
         setDaysToCalc([]);
-        setUpdatePage(false);
     }
 
     function getMonthHelper(numb) {
@@ -92,13 +137,13 @@ function TimeWeek() {
     }
 
     function timeSetter(day,time) {
-        // let newDayToCalc = {
-        //     'day':day,
-        //     'time':time
-        // };
         daysToCalc.push({
             [day]:time
         })
+    }
+
+    function togglePass(){
+        setToggle(true);
     }
 
     return (
@@ -120,22 +165,22 @@ function TimeWeek() {
                 <div><b>Total</b></div>
             </div>
             <div className={classes.tableBot}>
-                <div>
+                <div className={classes.usrnm}>
                     {/* <span>avatar</span> */}
                     <span>Janko Stanic</span>
                 </div>
-                <div>{calcSun}</div>
-                <div>{calcMon}</div>
-                <div>{calcTue}</div>
-                <div>{calcWed}</div>
-                <div>{calcThu}</div>
-                <div>{calcFri}</div>
-                <div>{calcSat}</div>
-                <div>{calcTotal}</div>
+                <div>{ calcSun > 0 && new Date(calcSun*1000/2).toISOString().substr(11, 5)}</div>
+                <div>{ calcMon > 0 && new Date(calcMon*1000/2).toISOString().substr(11, 5)}</div>
+                <div>{ calcTue > 0 && new Date(calcTue*1000/2).toISOString().substr(11, 5)}</div>
+                <div>{ calcWed > 0 && new Date(calcWed*1000/2).toISOString().substr(11, 5)}</div>
+                <div>{ calcThu > 0 && new Date(calcThu*1000/2).toISOString().substr(11, 5)}</div>
+                <div>{ calcFri > 0 && new Date(calcFri*1000/2).toISOString().substr(11, 5)}</div>
+                <div>{ calcSat > 0 && new Date(calcSat*1000/2).toISOString().substr(11, 5)}</div>
+                <div className={classes.tots}>{ calcTotal > 0 && new Date(calcTotal*1000/2).toISOString().substr(11, 5)}</div>
                 <div className={classes.noStyle}></div>
             </div>
             <div className={classes.tableTask}>
-                { tasksLoading ? <div>Loading...</div> : <TimedTasksList arrayOfDays={daysArray} timeSettings={timeSetter}/> }
+                { tasksLoading ? <div>Loading...</div> : <TimedTasksList arrayOfDays={daysArray} timeSettings={timeSetter} toggle={togglePass}/> }
             </div>
         </div>
     )

@@ -5,7 +5,6 @@ function TimedTasksList(props) {
     const [days] = useState(props.arrayOfDays);
     const [fetchedTasks, setFetchedTasks] = useState([]);
     const user_id = localStorage.getItem('user_id');
-    const [loading, setLoading] = useState(true);
     
     useEffect(() => {
         const day1=days[0];
@@ -18,6 +17,10 @@ function TimedTasksList(props) {
 
         fetchTaskTimesByDays(user_id,day1,day2,day3,day4,day5,day6,day7)
     },[props.arrayOfDays])
+
+    function passToggle() {
+        props.toggle();
+    }
 
     function fetchTaskTimesByDays(user_id,day1,day2,day3,day4,day5,day6,day7) {
         let newData = [];
@@ -83,7 +86,7 @@ function TimedTasksList(props) {
     return (
         <div>
             {fetchedTasks.map((singleFetchedTask) => {
-                return <TimedTaskRow key={singleFetchedTask.timetrackId} singleTaskInfo={singleFetchedTask} days={days} upstreamFunc={sendTimeToWeek}/>
+                return <TimedTaskRow key={singleFetchedTask.timetrackId} singleTaskInfo={singleFetchedTask} days={days} upstreamFunc={sendTimeToWeek} toggle={passToggle}/>
             })}
         </div>
     )

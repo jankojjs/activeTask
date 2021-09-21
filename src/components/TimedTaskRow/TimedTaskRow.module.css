@@ -19,3 +19,13 @@
     background: #f6f6f9;
     border-left: none;
 }
+
+.links {
+    color: #7048e8;
+    padding-bottom: 3px;
+    padding-left: 2px;
+    padding-right: 3px;
+    border-bottom: 2px solid #9775fa;
+    text-decoration: none;
+    line-height: 1.9;
+}

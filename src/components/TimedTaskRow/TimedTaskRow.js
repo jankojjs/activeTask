@@ -1,8 +1,13 @@
 import classes from './TimedTaskRow.module.css';
 import { Link } from 'react-router-dom';
-import { useState, useEffect, useRef } from "react";
+import { useEffect } from "react";
 
 function TimedTaskRow(props) {
+
+    useEffect(() => {
+        props.toggle();
+    })
+
     const dataArr = [];
     let dayNumb=0;
 
@@ -13,8 +18,29 @@ function TimedTaskRow(props) {
         dayNumb = dayNumb + 1;
     }
 
-    function sendTimeUpstream(numberOfDay,timeToSend) {
-        props.upstreamFunc(numberOfDay,timeToSend)
+    function insertIntoWeekLocalStorage(dayNumberish,timeish) {
+        if(dayNumberish===1){
+            localStorage.setItem('Sun',parseInt(localStorage.getItem('Sun'))+timeish);
+        }
+        if(dayNumberish===2){
+            localStorage.setItem('Mon',parseInt(localStorage.getItem('Mon'))+timeish);
+        }
+        if(dayNumberish===3){
+            localStorage.setItem('Tue',parseInt(localStorage.getItem('Tue'))+timeish);
+        }
+        if(dayNumberish===4){
+            localStorage.setItem('Wed',parseInt(localStorage.getItem('Wed'))+timeish);
+        }
+        if(dayNumberish===5){
+            localStorage.setItem('Thu',parseInt(localStorage.getItem('Thu'))+timeish);
+        }
+        if(dayNumberish===6){
+            localStorage.setItem('Fri',parseInt(localStorage.getItem('Fri'))+timeish);
+        }
+        if(dayNumberish===7){
+            localStorage.setItem('Sat',parseInt(localStorage.getItem('Sat'))+timeish);
+        }
+        localStorage.setItem('Tot',parseInt(localStorage.getItem('Tot'))+timeish);
     }
 
     props.singleTaskInfo.days.map((singleDay)=>{
@@ -30,7 +56,7 @@ function TimedTaskRow(props) {
     return (
         <div className={classes.table}>
             <div className={classes.cellName}>
-                <Link to={'/task/'+props.singleTaskInfo.taskId}>{props.singleTaskInfo.taskName}</Link>
+                <Link className={classes.links} to={'/task/'+props.singleTaskInfo.taskId}>{props.singleTaskInfo.taskName}</Link>
             </div>
             {
                 props.days.map((oneWorkDay)=>{
@@ -42,7 +68,7 @@ function TimedTaskRow(props) {
                                 var formatedTimeConst;
                                 if(timeConst !== undefined) {
                                     let integerTimeSeconds = parseInt(timeConst);
-                                    sendTimeUpstream(dayNumb,integerTimeSeconds);
+                                    insertIntoWeekLocalStorage(dayNumb,integerTimeSeconds);
                                     formatedTimeConst = new Date(integerTimeSeconds*1000).toISOString().substr(11, 5);
                                 }
                                 return (formatedTimeConst)

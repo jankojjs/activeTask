@@ -16,7 +16,16 @@
     border: 1px solid #cacaca;
     padding: 10px;
     background: #f6f6f9;
-    border-left: none;
+    border-left: none;    
+    text-align: center;
+}
+
+.tots {
+    font-weight: 700;
+}
+
+.usrnm {
+    text-align: left !important;
 }
 
 .tableTop div {

@@ -17,6 +17,15 @@
     width: 85vw;
 }
 
+.cardOne {
+    border: 1px solid #cacaca;
+    background: white;
+    border-radius: 4px;
+    padding: 15px 0;
+    margin-bottom: 20px;
+    width: 85vw;
+}
+
 .navItem {
     padding-right: 15px;
     padding: 15px 20px;
@@ -24,6 +33,6 @@
 }
 
 .navItem:hover {
-    border-bottom: 2px solid blue;
-    color: blue;
+    border-bottom: 2px solid #7048e8;
+    color: #7048e8;
 }

@@ -21,9 +21,9 @@ function MyWorkPage() {
             <div>
                 <h2 className={classes.pageHeadline}>My Work</h2>
             </div>
-            <div className={classes.card}>
-                <span onClick={openTasksView} style={{ borderBottom: tasksView ? '2px solid blue' : '' }} className={classes.navItem}>Tasks(5)</span>
-                <span onClick={openTrackView} style={{ borderBottom: timetrackView ? '2px solid blue' : '' }} className={classes.navItem}>TimeTracker</span>
+            <div className={classes.cardOne}>
+                <span onClick={openTasksView} style={{ borderBottom: tasksView ? '2px solid #7048e8' : '' }} className={classes.navItem}>Tasks(5)</span>
+                <span onClick={openTrackView} style={{ borderBottom: timetrackView ? '2px solid #7048e8' : '' }} className={classes.navItem}>TimeTracker</span>
             </div>
             <div className={classes.card}>
                 { tasksView && <div>aaa</div> }

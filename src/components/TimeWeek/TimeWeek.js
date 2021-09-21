@@ -1,6 +1,6 @@
 import classes from './TimeWeek.module.css';
 import { AiFillCaretLeft, AiFillCaretRight } from "react-icons/ai";
-import { useContext,useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import TimedTasksList from '../TimedTasksList/TimedTasksList';
 
 function TimeWeek() {
@@ -9,7 +9,6 @@ function TimeWeek() {
     const currentYear = dateObj.getFullYear();
     const currentDayInMonth = dateObj.getDate();
     const currentDayInWeek = dateObj.getDay();
-    const today = dateObj.getDate(currentYear, currentMonth, currentDayInMonth);
     const [weekCounter, setWeekCounter] = useState(0);
     const [currentSun, setCurrentSun] = useState();
     const [currentMon, setCurrentMon] = useState();

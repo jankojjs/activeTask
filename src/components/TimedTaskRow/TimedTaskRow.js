@@ -1,8 +1,21 @@
 import classes from './TimedTaskRow.module.css';
 import { Link } from 'react-router-dom';
+import { useState, useEffect, useRef } from "react";
 
 function TimedTaskRow(props) {
     const dataArr = [];
+    let dayNumb=0;
+
+    function dayUp() {
+        if(dayNumb===8){
+            dayNumb = 1;
+        }
+        dayNumb = dayNumb + 1;
+    }
+
+    function sendTimeUpstream(numberOfDay,timeToSend) {
+        props.upstreamFunc(numberOfDay,timeToSend)
+    }
 
     props.singleTaskInfo.days.map((singleDay)=>{
         props.days.map((singleWeekDay)=>{
@@ -21,6 +34,7 @@ function TimedTaskRow(props) {
             </div>
             {
                 props.days.map((oneWorkDay)=>{
+                    dayUp();
                     return (
                         <div key={oneWorkDay} className={classes.cell}>{
                             dataArr.map((singleDataItem)=>{
@@ -28,11 +42,13 @@ function TimedTaskRow(props) {
                                 var formatedTimeConst;
                                 if(timeConst !== undefined) {
                                     let integerTimeSeconds = parseInt(timeConst);
+                                    sendTimeUpstream(dayNumb,integerTimeSeconds);
                                     formatedTimeConst = new Date(integerTimeSeconds*1000).toISOString().substr(11, 5);
                                 }
                                 return (formatedTimeConst)
                             })
-                        }</div>
+                        }
+                        </div>
                     )
                 })
             }

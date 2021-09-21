@@ -23,6 +23,8 @@ function TimeWeek() {
     const [daysArray, setDaysArray] = useState([]);
     const [tasksLoading, setTasksLoading] = useState(true);
     const [daysForTimedRow, setDaysForTimedRow] = useState();
+    const [daysToCalc, setDaysToCalc] = useState([]);
+    const [updatePage, setUpdatePage] = useState(false);
 
     //calculating
     const [calcSun, setCalcSun] = useState(0);
@@ -34,9 +36,9 @@ function TimeWeek() {
     const [calcSat, setCalcSat] = useState(0);
     const [calcTotal, setCalcTotal] = useState(0);
 
-    useEffect(() => {
-        setCalcTotal(calcSun+calcMon+calcTue+calcWed+calcThu+calcFri+calcSat);
-    })
+    // useEffect(() => {
+    //     setCalcTotal(calcSun+calcMon+calcTue+calcWed+calcThu+calcFri+calcSat);
+    // },[calcSun,calcMon,calcTue,calcWed,calcThu,calcFri,calcSat])
 
     // will refractor this, i promise
     useEffect(() => {
@@ -67,16 +69,21 @@ function TimeWeek() {
         setDaysArray([(selectedSunday.toISOString()).substr(0,10),(selectedMonday.toISOString()).substr(0,10),(selectedTuesday.toISOString()).substr(0,10),(selectedWednesday.toISOString()).substr(0,10),(selectedThursday.toISOString()).substr(0,10),(selectedFriday.toISOString()).substr(0,10),(selectedSaturday.toISOString()).substr(0,10)]);
         setTasksLoading(false);
         setDaysForTimedRow([currentSun,currentMon,currenTue,currentWed,currentThu,currentFri,currentSun]);
+        console.log(daysToCalc)
     },[weekCounter])
 
     function goWeekBefore() {
         setTasksLoading(true);
         setWeekCounter(weekCounter-1);
+        setDaysToCalc([]);
+        setUpdatePage(false);
     }
 
     function goWeekNext() {
         setTasksLoading(true);
         setWeekCounter(weekCounter+1);
+        setDaysToCalc([]);
+        setUpdatePage(false);
     }
 
     function getMonthHelper(numb) {
@@ -84,11 +91,15 @@ function TimeWeek() {
         return months[numb];
     }
 
-    function addToSun(time) {
-        setCalcSun(calcSun+time);
+    function timeSetter(day,time) {
+        // let newDayToCalc = {
+        //     'day':day,
+        //     'time':time
+        // };
+        daysToCalc.push({
+            [day]:time
+        })
     }
-
-// for db we need toIso and substr 0,10
 
     return (
         <div className={classes.scrollable}>
@@ -124,7 +135,7 @@ function TimeWeek() {
                 <div className={classes.noStyle}></div>
             </div>
             <div className={classes.tableTask}>
-                { tasksLoading ? <div>Loading...</div> : <TimedTasksList arrayOfDays={daysArray} sundayCalc={addToSun}/> }
+                { tasksLoading ? <div>Loading...</div> : <TimedTasksList arrayOfDays={daysArray} timeSettings={timeSetter}/> }
             </div>
         </div>
     )

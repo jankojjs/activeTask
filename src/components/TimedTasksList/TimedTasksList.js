@@ -72,6 +72,10 @@ function TimedTasksList(props) {
         });
     }
 
+    function sendTimeToWeek(day,time) {
+        props.timeSettings(day,time)
+    }
+
     useEffect(() => {
         return fetchedTasks
     },[fetchedTasks])
@@ -79,7 +83,7 @@ function TimedTasksList(props) {
     return (
         <div>
             {fetchedTasks.map((singleFetchedTask) => {
-                return <TimedTaskRow key={singleFetchedTask.timetrackId} singleTaskInfo={singleFetchedTask} days={days}/>
+                return <TimedTaskRow key={singleFetchedTask.timetrackId} singleTaskInfo={singleFetchedTask} days={days} upstreamFunc={sendTimeToWeek}/>
             })}
         </div>
     )

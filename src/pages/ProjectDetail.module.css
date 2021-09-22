@@ -1,0 +1,69 @@
+.card {
+    border-radius: 4px;
+    border: 1px solid #cacaca;
+    background: white;
+    margin-right: 20px;
+    padding: 0 20px;
+    margin-top: 20px;
+}
+
+@media only screen and (max-width: 600px) {
+    .card {
+     margin-left: 20px;
+     padding: 0;
+      }
+  }
+
+  .controlsWrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-bottom: 1px solid #cacaca;
+      position: relative;
+  }
+
+  .controls {
+      text-align: right;
+  }
+
+  .tabs div {
+      padding: 15px 15px;
+      display: inline-block;
+      cursor: pointer;
+  }
+
+  .tabActive {
+      margin-bottom: -1px;
+      border-bottom: 2px solid #7048e8;
+  }
+
+  .ppl {
+      position: relative;
+      top: 10px;
+      border: 1px solid #cacaca;
+      display: inline-block;
+      padding: 5px 10px 5px 25px;
+      border-top-left-radius: 25px;
+      border-bottom-left-radius: 25px;
+      cursor: pointer;
+  }
+
+  .ppl:hover {
+    border: 1px solid #7048e8;
+  }
+
+  .chevronBot {
+      position: relative;
+      top: 3px;
+      padding-left: 10px;
+  }
+
+  .absPos {
+      position: absolute;
+      right: 0;
+      z-index: 3;
+      background:white;
+      border: 1px solid #cacaca;
+      padding: 20px;
+      top: 40px;
+
+  }

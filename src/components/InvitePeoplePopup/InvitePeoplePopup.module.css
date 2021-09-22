@@ -1,0 +1,12 @@
+.grid {
+    display: grid;
+}
+
+.top {
+    border-bottom: 1px solid #cacaca;
+    padding: 10px 20px;
+}
+
+.bot {
+    padding: 10px 20px;
+}

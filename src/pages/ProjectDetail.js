@@ -69,9 +69,9 @@ function ProjectDetailPage() {
                         <div className={classes.tabActive}>Tasks</div>
                     </div>
                     <div className={classes.controls}>
-                        <div onMouseEnter={showPeopleHandlerOpen} onMouseLeave={showPeopleHandlerClose} className={classes.ppl}>People (1) <span className={classes.chevronBot}><FaChevronDown /></span></div>
+                        <div onClick={showPeopleHandlerOpen} onMouseEnter={showPeopleHandlerOpen} onMouseLeave={showPeopleHandlerClose} className={classes.ppl}>People (1) <span className={classes.chevronBot}><FaChevronDown /></span></div>
                     </div>
-                    { showPeopleHandler && <div className={classes.absPos}><InvitePeoplePopup/></div>}
+                    { showPeopleHandler && <div className={classes.absPos} onMouseEnter={showPeopleHandlerOpen} onMouseLeave={showPeopleHandlerClose}><InvitePeoplePopup/></div>}
                 </div>
                 <NewTasklistButton onClick={openNewTasklistModal} />
                 { newTasklist && <Backdrop onCancel={closeNewTasklistModal } />}

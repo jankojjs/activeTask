@@ -1,4 +1,5 @@
 import classes from './InvitePeoplePopup.module.css';
+import { RiVipCrownLine } from "react-icons/ri";
 
 function InvitePeoplePopup() {
     return (
@@ -6,7 +7,7 @@ function InvitePeoplePopup() {
             <div className={classes.top}>
                 <button className='btn'>Invite people</button>
             </div>
-            <div className={classes.bot}>Janko Stanic</div>
+            <div className={classes.bot}><span className={classes.crown}><RiVipCrownLine/></span>Janko Stanic</div>
         </div>
     )
 }

@@ -11,8 +11,9 @@ function InvitePeopleForm(props) {
         if(inputRef.current.value===''){
             return
         }
-        const url='https://jjsolutions.rs/api/userexists.php';
+        const url='https://jjsolutions.rs/api/invitetoproject.php';
         const formData = new FormData();
+        let userNm = inputRef.current.value;
         formData.append('receiver', inputRef.current.value);
         formData.append('sender', localStorage.getItem('username'));
         formData.append('project_id', projectId);
@@ -25,9 +26,9 @@ function InvitePeopleForm(props) {
         .then((body) => {
             if(body === "success") {
                 props.onCancel();
-                alert('Success.')
+                alert('User '+userNm+' has been invited to project '+projectName);
             } else {
-                alert('Please check if you entered valid username.')
+                alert('Please check if you entered valid username.');
             }
         });
     }

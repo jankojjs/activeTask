@@ -24,7 +24,6 @@ function TaskLabelDropdown(props) {
         })
         .then((data) => {
             if(data !== undefined) {
-                alert('success')
             } else {
                 alert('Sorry there was an error while trying to create a new task.')
             }

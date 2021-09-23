@@ -49,10 +49,10 @@ function MainNavigation() {
                                 </Link>
                             </li>
                             <li>
-                                <Link to='/messages'>
+                                <Link to='/notifications'>
                                     <span className={classes.span}>
-                                        <AiFillMessage size={16} className={classes.smicon} />  
-                                    </span>Messages
+                                        <IoIosNotifications size={16} className={classes.smicon} />  
+                                    </span>Notifications
                                 </Link>
                             </li>
                             <li>
@@ -88,8 +88,8 @@ function MainNavigation() {
                         </Link>
                     </div>
                     <div className={classes.ditem}>
-                        <Link to='/messages'>
-                            <AiFillMessage className={classes.dicon} size={28} />
+                        <Link to='/notifications'>
+                            <IoIosNotifications className={classes.dicon} size={28} />
                         </Link>
                     </div>
                     <div className={`${classes.ditem} ${classes.dlogout}`}>

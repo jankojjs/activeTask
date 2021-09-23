@@ -7,6 +7,7 @@ import TaskDetailPage from './pages/TaskDetail';
 import SettingsPage from './pages/Settings';
 import MyProfilePage from './pages/MyProfile';
 import MyWorkPage from './pages/MyWork';
+import NotificationsPage from './pages/Notifications';
 import { useContext } from 'react';
 import LoginContext from './store/login-context';
 import Layout from './layout/Layout';
@@ -42,7 +43,10 @@ function App() {
             {loginCond ? <MyProfilePage /> : <Redirect to='/login' />}
           </Route>
           <Route path='/my-work' exact>
-            {loginCond ? <MyWorkPage />: <Redirect to='/login' />}
+            {loginCond ? <MyWorkPage /> : <Redirect to='/login' />}
+          </Route>
+          <Route path='/notifications' exact>
+            {loginCond ? <NotificationsPage /> : <Redirect to='/login' />}
           </Route>
           <Route path='/login' exact>
             <LoginPage />

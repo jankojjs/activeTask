@@ -26,7 +26,8 @@ function PageDetailCard(props) {
     }
 
     function backBtnHandler() {
-        history.push('/project/'+inheritedTask.project_id);
+        // history.push('/project/'+inheritedTask.project_id);
+        history.goBack();
     }
 
     function deleteHandler() {

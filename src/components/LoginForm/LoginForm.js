@@ -45,7 +45,7 @@ function LoginForm() {
 
     return <div className={classes.formDiv}>
         <form>
-            <input type='text' name='username' placeholder='enter username' required ref={usernameInputRef} />
+            <input type='text' name='username' placeholder='enter username' required ref={usernameInputRef} autoComplete="off" />
             <input type='password' name='password' placeholder='enter password' required ref={passwordInputRef} />
             <input className='alt' type='reset' value='Reset' />
             <button className='btn' onClick={loginFormHandler}>Submit</button>

@@ -6,13 +6,11 @@ function SingleNotificationCard(props) {
     const [notId] = useState(props.notification.notId);
 
     function acceptNot() {
-        console.log('accepted '+notId);
-        acceptNotification(notId);
+        acceptNotification(notId,props.notification.project_id);
         props.removeArr(notId);
     }
     
     function declineNot() {
-        console.log('decline '+notId);
         deleteNotification(notId);
         props.removeArr(notId);
     }
@@ -28,19 +26,20 @@ function SingleNotificationCard(props) {
         })
         .then((body) => {
                 if(body !== undefined) {
-                    alert('success')
                 } else {
                     // if empty array do smth
+                    alert('Could not delete notification at this time.')
                 }
         });
     }
 
-    function acceptNotification(neededNotId) {
+    function acceptNotification(neededNotId,origId) {
         const url='https://jjsolutions.rs/api/acceptinviteapi.php';
         const formData = new FormData();
         formData.append('notId', neededNotId);
         formData.append('user_id', localStorage.getItem('user_id'));
         formData.append('project_name', props.notification.project_name);
+        formData.append('originalpid', origId);
 
         fetch(url, { method: 'POST', body: formData })
         .then((response) => {
@@ -48,9 +47,9 @@ function SingleNotificationCard(props) {
         })
         .then((body) => {
                 if(body !== undefined) {
-                    alert('success')
+                    alert('You successfuly joined project '+props.notification.project_name);
                 } else {
-                    // if empty array do smth
+                    alert('Could not join project at this moment.')
                 }
         });
     }

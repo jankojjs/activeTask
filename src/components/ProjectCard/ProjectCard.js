@@ -40,7 +40,7 @@ function ProjectCard(props) {
         <div className={classes.card}>
             <div className={classes.toprow}>
                 <div className={classes.projectname}>
-                    <Link to={'/project/'+props.project_id}>{props.project_name}</Link>
+                    <Link to={'/project/'+props.originalpid}>{props.project_name}</Link>
                 </div>
                 <ProjectStar project_id={props.project_id} starred={star} />
                 <div className={classes.more}>

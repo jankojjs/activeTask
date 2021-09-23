@@ -1,0 +1,21 @@
+.plainTxt {
+    font-weight: 300;
+}
+
+.card {
+    padding: 10px 0;
+    border-bottom: 1px solid #cacaca;
+}
+
+.decline {
+    padding: 0 20px;
+    cursor: pointer;
+    position: relative;
+    top: 5px;
+}
+
+.accept {
+    cursor: pointer;
+    position: relative;
+    top: 5px;
+}

@@ -9,7 +9,8 @@ function ProjectList(props) {
                                     project_label = {project.project_label}
                                     project_created = {project.project_created}
                                     project_starred = {project.project_starred}
-                                    project_id = {project.project_id} />
+                                    project_id = {project.project_id} 
+                                    originalpid = {project.originalpid} />
             })}
         </div>
     )

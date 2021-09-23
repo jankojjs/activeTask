@@ -1,0 +1,12 @@
+.logo {
+    font-weight: 600;
+    font-size: 28px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr auto;
+    width:100%;
+    max-width: 1200px;
+    position: absolute;
+}

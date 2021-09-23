@@ -1,5 +1,6 @@
 import classes from './InvitePeopleModal.module.css';
 import img from './inviteFriend.png'
+import InvitePeopleForm from '../InvitePeopleForm/InvitePeopleForm';
 
 function InvitePeopleModal(props) {
     return (
@@ -10,7 +11,7 @@ function InvitePeopleModal(props) {
                 </div>
                 <div className={classes.membs}>MEMBERS</div>
                 <p className={classes.explanation}>Members can see and create everything in the project. </p>
-                <div>aaa</div>
+                <InvitePeopleForm onCancel={props.onCancel} projectId={props.projectId} projectName={props.projectName}/>
             </div>
         </div>
     )

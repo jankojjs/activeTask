@@ -92,7 +92,7 @@ function ProjectDetailPage() {
                     </div> 
                 <NewTasklistButton onClick={openNewTasklistModal} />
                 { inviteFormHandler && <Backdrop onCancel={inviteModalClose } />}
-                { inviteFormHandler && <InvitePeopleModal onCancel={inviteModalClose } />}
+                { inviteFormHandler && <InvitePeopleModal projectId={project.project_id} projectName={project.project_name} onCancel={inviteModalClose } />}
                 { newTasklist && <Backdrop onCancel={closeNewTasklistModal } />}
                 { newTasklist && <NewTasklistModal clickHande={moveStateByOne} onCancel={closeNewTasklistModal } project_id={projectId} />}
                 <TasklistList tasklists={project.lists} />

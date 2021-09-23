@@ -3,7 +3,7 @@
     border: 1px solid #cacaca;
     border-radius: 7px;
     z-index: 999;
-    position: absolute;
+    position: fixed;
     top: 30%;  
     left: 50%; 
     transform: translate(-50%, -30%);
@@ -21,6 +21,8 @@
 
 .img img {
     border-radius: 50%;
+    margin: 0 auto;
+    display: block;
 }
 
 .membs {

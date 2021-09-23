@@ -1,0 +1,36 @@
+.card {
+    background: white;
+    border: 1px solid #cacaca;
+    border-radius: 7px;
+    z-index: 999;
+    position: absolute;
+    top: 30%;  
+    left: 50%; 
+    transform: translate(-50%, -30%);
+}
+
+.grid {
+    display: grid;
+    padding: 20px 100px;
+}
+
+.img {
+    background-color: rgb(82, 82, 134);
+    border-radius: 50%;
+}
+
+.img img {
+    border-radius: 50%;
+}
+
+.membs {
+    color: rgb(107, 103, 103);
+    font-weight: 300;
+    text-align: center;
+    padding: 15px 0 0;
+}
+
+.explanation {
+    font-size: 12px;
+    text-align: center;
+}

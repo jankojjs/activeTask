@@ -8,7 +8,7 @@ import NewTasklistModal from '../components/NewTasklistModal/NewTasklistModal';
 import TasklistList from '../components/TasklistList/TasklistList'; 
 import { FaChevronDown } from "react-icons/fa";
 import InvitePeoplePopup from '../components/InvitePeoplePopup/InvitePeoplePopup';
-
+import InvitePeopleModal from '../components/InvitePeopleModal/InvitePeopleModal';
 
 function ProjectDetailPage() {
     let history = useHistory();
@@ -19,10 +19,13 @@ function ProjectDetailPage() {
     const [state, setState] = useState(0);
     const [projectId] = useState(location.pathname.replace('/project/',''));
     const [showPeopleHandler, setShowPeopleHandler] = useState(false);
+    const [permisions, setPermisions] = useState(false);
+    const [inviteFormHandler, setInviteFormHandler] = useState(false);
 
     useEffect(() => {
         setIsLoading(true);
         fetchData();
+        setPermisions();
     }, [state]);
 
     function fetchData() {
@@ -34,8 +37,11 @@ function ProjectDetailPage() {
             if(!data.length) {
                 history.push('/');
             } else {
-            setIsLoading(false);
-            setProject(data[0]);
+                setIsLoading(false);
+                setProject(data[0]);
+                if(data[0].project_permisions==='9000') {
+                    setPermisions(true)
+                }
             }
         });
     }
@@ -60,6 +66,15 @@ function ProjectDetailPage() {
         setShowPeopleHandler(false);
     }
 
+    function inviteModalOpen() {
+        setInviteFormHandler(true);
+        setShowPeopleHandler(false);
+    }
+
+    function inviteModalClose() {
+        setInviteFormHandler(false);
+    }
+
     return (
         <div>
             <ProjectDetailHeadline project_name={project.project_name} />
@@ -68,12 +83,16 @@ function ProjectDetailPage() {
                     <div className={classes.tabs}>
                         <div className={classes.tabActive}>Tasks</div>
                     </div>
-                    <div className={classes.controls}>
-                        <div onClick={showPeopleHandlerOpen} onMouseEnter={showPeopleHandlerOpen} onMouseLeave={showPeopleHandlerClose} className={classes.ppl}>People (1) <span className={classes.chevronBot}><FaChevronDown /></span></div>
-                    </div>
-                    { showPeopleHandler && <div className={classes.absPos} onMouseEnter={showPeopleHandlerOpen} onMouseLeave={showPeopleHandlerClose}><InvitePeoplePopup/></div>}
-                </div>
+                    { permisions && <div>
+                        <div className={classes.controls}>
+                            <div onClick={showPeopleHandlerOpen} onMouseEnter={showPeopleHandlerOpen} onMouseLeave={showPeopleHandlerClose} className={classes.ppl}>People <span className={classes.chevronBot}><FaChevronDown /></span></div>
+                        </div>
+                        { showPeopleHandler && <div className={classes.absPos} onMouseEnter={showPeopleHandlerOpen} onMouseLeave={showPeopleHandlerClose}><InvitePeoplePopup onClick={inviteModalOpen}/></div>}
+                    </div>}
+                    </div> 
                 <NewTasklistButton onClick={openNewTasklistModal} />
+                { inviteFormHandler && <Backdrop onCancel={inviteModalClose } />}
+                { inviteFormHandler && <InvitePeopleModal onCancel={inviteModalClose } />}
                 { newTasklist && <Backdrop onCancel={closeNewTasklistModal } />}
                 { newTasklist && <NewTasklistModal clickHande={moveStateByOne} onCancel={closeNewTasklistModal } project_id={projectId} />}
                 <TasklistList tasklists={project.lists} />

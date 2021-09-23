@@ -16,3 +16,10 @@
     top: 1px;
     padding-right: 10px;
 }
+
+.membs {
+    color: rgb(26, 148, 26);
+    font-size: 14px;
+    padding: 5px 22px 0;
+    font-weight: 500;
+}

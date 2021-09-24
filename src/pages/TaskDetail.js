@@ -8,6 +8,7 @@ function TaskDetailPage() {
     const history = useHistory();
     const [taskObj, setTaskObj] = useState({});
     const [notLoading, setNotLoading] = useState(false);
+    const [peopleArr, setPeopleArr] = useState([]);
 
     useEffect(() => {
        return history.listen((location) => { 
@@ -18,6 +19,9 @@ function TaskDetailPage() {
 
     useEffect(() => {
         fetchTaskHandler();
+        fetchTaskPeople();
+
+        return (taskId);
     }, [taskId])
 
     function fetchTaskHandler() {
@@ -35,9 +39,23 @@ function TaskDetailPage() {
         })
     }
 
+    function fetchTaskPeople() {
+        fetch(
+            'https://jjsolutions.rs/api/taskpeopleapi.php?task_id='+taskId
+        )
+        .then(response=>response.json())
+        .then(data => {
+            if(data.length === 0) {
+                console.log('no people in this task')
+            } else {
+                setPeopleArr(data);
+            }
+        })
+    }
+
     return (
         <div>
-            { notLoading ? <PageDetailCard taskObj={taskObj} /> : <div>Loading...</div> }
+            { notLoading ? <PageDetailCard taskObj={taskObj} people={peopleArr}/> : <div>Loading...</div> }
         </div>
     )
 }

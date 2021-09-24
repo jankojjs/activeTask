@@ -9,6 +9,7 @@ import Backdrop from '../Backdrop/Backdrop';
 import DeleteTaskModal from '../DeleteTaskModal/DeleteTaskModal';
 import EditTaskForm from '../EditTaskForm/EditTaskForm';
 import TaskLabelDropdown from '../TaskLabelDropdown/TaskLabelDropdown';
+import TaskAsigneeDropdown from '../TaskAsigneeDropdown/TaskAsigneeDropdown';
 
 function PageDetailCard(props) {
     const [inheritedTask] = useState(props.taskObj);
@@ -69,6 +70,9 @@ function PageDetailCard(props) {
                 </div>
                 <div className={classes.right}>
                     <div>Tasklist: <span>{inheritedTask.list_name}</span></div>
+                    <div className={classes.labelGroup}>Asignee: 
+                        <TaskAsigneeDropdown taskId={inheritedTask.task_id} peoples={props.people} asignee={inheritedTask.task_asignee}/>
+                    </div>
                     <div className={classes.labelGroup}>Label: 
                         <TaskLabelDropdown taskId={inheritedTask.task_id} label={inheritedTask.task_label} />
                     </div>

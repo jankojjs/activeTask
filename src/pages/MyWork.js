@@ -31,10 +31,8 @@ function MyWorkPage() {
                 <span onClick={openTasksView} style={{ borderBottom: tasksView ? '2px solid #7048e8' : '' }} className={classes.navItem}>Tasks ({mwtCounter})</span>
                 <span onClick={openTrackView} style={{ borderBottom: timetrackView ? '2px solid #7048e8' : '' }} className={classes.navItem}>TimeTracker</span>
             </div>
-            <div className={classes.card}>
-                { tasksView && <MyWorkList setCount={setmwtCounterHandler}/> }
-                { timetrackView && <TimeWeek /> }
-            </div>
+            { timetrackView && <div className={classes.card}><TimeWeek /></div> }
+            { tasksView && <div className={classes.cardOne}><MyWorkList setCount={setmwtCounterHandler}/></div> }
         </div>
     )
 }

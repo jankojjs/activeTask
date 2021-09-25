@@ -5,7 +5,7 @@
     padding-top: 0;
 }
 
-@media only screen and (min-width: 640px) {
+@media only screen and (min-width: 820px) {
     .wrap {
         grid-template-columns: 1fr 1fr;
     }
@@ -17,13 +17,13 @@
     }
 }
 
-@media only screen and (min-width: 997px) {
+@media only screen and (min-width: 1250px) {
     .wrap {
         grid-template-columns: 1fr 1fr 1fr;
     }
 }
 
-@media only screen and (min-width: 1361px) {
+@media only screen and (min-width: 1500px) {
     .wrap {
         grid-template-columns: 1fr 1fr 1fr 1fr;
     }

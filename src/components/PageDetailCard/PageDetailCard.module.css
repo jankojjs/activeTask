@@ -6,9 +6,21 @@
     margin: 20px;
 }
 
+.timeDesktop {
+    display: none;
+}
+
 @media screen and (min-width: 780px) {
     .card {
         max-width: 800px;
+    }
+
+    .timeDesktop {
+        display: block;
+    }
+
+    .timeMobile {
+        display: none;
     }
 
     .gridWrap {
@@ -70,7 +82,7 @@
 }
 
 .labelGroup {
-    padding: 15px 0;
+    padding: 5px 0 7px;
 }
 
 .delete {
@@ -89,4 +101,9 @@
     padding-left: 10px;
     margin-left: 20px;
     cursor: pointer;
+}
+
+.newGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 }

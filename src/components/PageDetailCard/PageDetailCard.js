@@ -49,17 +49,20 @@ function PageDetailCard(props) {
 
     return (
         <div className={classes.card}>
-            <div className={classes.topRow}>
-                <div className={classes.active}>
-                    { inheritedTask.task_active ==='0' ? <span className={classes.checked}><AiFillCheckCircle size={22} color={'green'} /></span> : <span className={classes.notChecked}></span>}
+            <div className={classes.newGrid}>
+                <div className={classes.topRow}>
+                    <div className={classes.active}>
+                        { inheritedTask.task_active ==='0' ? <span className={classes.checked}><AiFillCheckCircle size={22} color={'green'} /></span> : <span className={classes.notChecked}></span>}
+                    </div>
+                    <div className={`${inheritedTask.task_active ==='0' ? 'completed' : 'notcompleted' }`}>{taskName}</div>
+                    <div onClick={editFormOpen} className={classes.edit}><MdEdit size={23}/></div>
+                    <div onClick={deleteHandler} className={classes.delete}><MdDelete size={23} /></div>
+                    <div onClick={backBtnHandler} className={classes.back}>
+                        <span className={classes.backIcon}><IoIosArrowDropleft size={22}/></span>
+                        {inheritedTask.project_name}
+                    </div>
                 </div>
-                <div className={`${inheritedTask.task_active ==='0' ? 'completed' : 'notcompleted' }`}>{taskName}</div>
-                <div onClick={editFormOpen} className={classes.edit}><MdEdit size={23}/></div>
-                <div onClick={deleteHandler} className={classes.delete}><MdDelete size={23} /></div>
-                <div onClick={backBtnHandler} className={classes.back}>
-                    <span className={classes.backIcon}><IoIosArrowDropleft size={22}/></span>
-                    {inheritedTask.project_name}
-                </div>
+                <div className={classes.timeDesktop}><TimeTracking taskDetails={inheritedTask}/></div>
             </div>
             {editForm ? <EditTaskForm onSuc={updateTaskInfo} taskId={inheritedTask.task_id} taskLabel={taskLabel} taskName={taskName} taskDescription={taskDescription} onCancel={editFormClose}/> : 
             <div className={classes.gridWrap}>
@@ -68,19 +71,19 @@ function PageDetailCard(props) {
                     </div>
                 </div>
                 <div className={classes.right}>
-                    <div>Tasklist: <span>{inheritedTask.list_name}</span></div>
+                    <div className={classes.labelGroup}>Tasklist: <span>{inheritedTask.list_name}</span></div>
                     <div className={classes.labelGroup}>Asignee: 
                         <TaskAsigneeDropdown taskId={inheritedTask.task_id} peoples={props.people} asignee={inheritedTask.task_asignee}/>
                     </div>
                     <div className={classes.labelGroup}>Label: 
                         <TaskLabelDropdown taskId={inheritedTask.task_id} label={inheritedTask.task_label} />
                     </div>
-                    <TimeTracking taskDetails={inheritedTask}/>
                 </div>
             </div>
             }
             { deleteModal && <Backdrop onCancel={closeDeleteModal}/> }
             { deleteModal && <DeleteTaskModal projectId={inheritedTask.project_id} taskId={inheritedTask.task_id} onCancel={closeDeleteModal}/> }
+            <div className={classes.timeMobile}><TimeTracking taskDetails={inheritedTask}/></div>
         </div>
     )
 }

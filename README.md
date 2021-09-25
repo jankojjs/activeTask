@@ -2,11 +2,22 @@
 
 ## `https://jjsolutions.rs`
 
-Live site can be found on https://jjsolutions.rs . 
+Live site can be found on https://jjsolutions.rs 
+or scroll down to see the screenshots
 
-There is a dummy account for testing:
-username: test
-password: janko420
+Contact me if you want an account at janko@jjsolutions.rs
+
+Scroll down for available scripts
+
+![projects](screenshots/projects.png)
+![project detail](screenshots/project-view.png)
+![task detail](screenshots/task-detail.png)
+![work week](screenshots/work-week.png)
+![new task](screenshots/new-task.png)
+![invite to project](screenshots/invitations.png)
+![notifications](screenshots/notifications.png)
+![my-profile](screenshots/my-profile.png)
+
 
 ## Available Scripts
 

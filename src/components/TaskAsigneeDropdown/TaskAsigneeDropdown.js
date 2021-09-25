@@ -37,7 +37,7 @@ function TaskAsigneeDropdown(props) {
                 { initialAsigneeEmptyHandler && <option value={props.asignee}>{props.asignee}</option> }
                 {
                     props.peoples.map((singlePerson)=>{
-                        if(singlePerson.username !== props.asignee) {
+                        if(singlePerson.username !== props.asignee && singlePerson.username !== null) {
                             return (<option key={singlePerson.project_id} value={singlePerson.username}>{singlePerson.username}</option>)
                         }
                     })

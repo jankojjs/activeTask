@@ -64,7 +64,6 @@ function PageDetailCard(props) {
             {editForm ? <EditTaskForm onSuc={updateTaskInfo} taskId={inheritedTask.task_id} taskLabel={taskLabel} taskName={taskName} taskDescription={taskDescription} onCancel={editFormClose}/> : 
             <div className={classes.gridWrap}>
                 <div className={classes.left}>
-                    <div>Task description:</div>
                     <div className={classes.taskDesc} dangerouslySetInnerHTML={{ __html: taskDescription }}>
                     </div>
                 </div>
@@ -76,7 +75,6 @@ function PageDetailCard(props) {
                     <div className={classes.labelGroup}>Label: 
                         <TaskLabelDropdown taskId={inheritedTask.task_id} label={inheritedTask.task_label} />
                     </div>
-                    <div>Time tracking:</div>
                     <TimeTracking taskDetails={inheritedTask}/>
                 </div>
             </div>

@@ -69,6 +69,10 @@
     margin-right: 15px;
 }
 
+.taskDesc {
+    max-width: 490px;
+}
+
 .back {
     color: gray;
     cursor: pointer;

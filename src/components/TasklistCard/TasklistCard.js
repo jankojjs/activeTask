@@ -78,6 +78,14 @@ function TasklistCard(props) {
         setTotalTasks(totalTasks + 1);
     }
 
+    function finishTaskHandler() {
+        setActiveTaskCounter(activeTaskCounter - 1);
+    }
+
+    function unfinishTaskHandler() {
+        setActiveTaskCounter(activeTaskCounter + 1);
+    }
+
     return (
     <div className={classes.tl}>
         <div>
@@ -95,7 +103,7 @@ function TasklistCard(props) {
                     {allTasks && allTasks.map((individualTaskCard) => {
                         return (
                             <li className={classes.listItem} key={individualTaskCard.task_id}>
-                                <TaskCard key={individualTaskCard.task_id} taskId={individualTaskCard.task_id} name={individualTaskCard.task_name} label={individualTaskCard.task_label} active={individualTaskCard.task_active}/>
+                                <TaskCard key={individualTaskCard.task_id} taskId={individualTaskCard.task_id} name={individualTaskCard.task_name} label={individualTaskCard.task_label} active={individualTaskCard.task_active} finishTask={finishTaskHandler} unfinishTask={unfinishTaskHandler}/>
                             </li>
                         )
                     })
@@ -105,7 +113,7 @@ function TasklistCard(props) {
                 {allTasks.slice(0, 5).map((individualTaskCard)=> {
                     return (
                     <li className={classes.listItem} key={individualTaskCard.task_id}>
-                        <TaskCard key={individualTaskCard.task_id} taskId={individualTaskCard.task_id} name={individualTaskCard.task_name} label={individualTaskCard.task_label} active={individualTaskCard.task_active}/>
+                        <TaskCard key={individualTaskCard.task_id} taskId={individualTaskCard.task_id} name={individualTaskCard.task_name} label={individualTaskCard.task_label} active={individualTaskCard.task_active} finishTask={finishTaskHandler} unfinishTask={unfinishTaskHandler}/>
                     </li>
                     )
                 })}

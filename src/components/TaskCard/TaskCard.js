@@ -29,9 +29,11 @@ function TaskCard(props) {
         if(checked === '1') {
             setChecked('0');
             newCheckValue = 0;
+            props.finishTask();
         } else {
             newCheckValue = 1;
             setChecked('1');
+            props.unfinishTask();
         }
         fetch(
             'https://jjsolutions.rs/api/taskcompleteapi.php?task_id='+props.taskId+'&task_active='+newCheckValue

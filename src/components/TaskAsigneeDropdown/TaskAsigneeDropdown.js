@@ -4,11 +4,11 @@ import classes from './TaskAsigneeDropdown.module.css';
 function TaskAsigneeDropdown(props) {
     const taskAsigneeInput = useRef();
     const [asigneeBegining, setAsigneeBegining] = useState(props.asignee);
+    const [initialAsigneeEmptyHandler, setInitialAsigneeEmptyHandler] = useState(props.asignee !== null);
 
     useEffect(() => {
         setAsigneeBegining(props.asignee);
         return () => {
-          //your cleanup code codes here
             setAsigneeBegining();
         };
     },[])
@@ -38,13 +38,17 @@ function TaskAsigneeDropdown(props) {
             }
         })
     }
+
     return (
         <span>
             <select onChange={changeHandler} defaultValue={props.asignee} className={classes.select} ref={taskAsigneeInput}>
                 <option value=''>None</option>
+                { initialAsigneeEmptyHandler && <option value={props.asignee}>{props.asignee}</option> }
                 {
                     props.peoples.map((singlePerson)=>{
-                        return (<option key={singlePerson.project_id} value={singlePerson.username}>{singlePerson.username}</option>)
+                        if(singlePerson.username !== props.asignee) {
+                            return (<option key={singlePerson.project_id} value={singlePerson.username}>{singlePerson.username}</option>)
+                        }
                     })
                 }
             </select>

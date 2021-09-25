@@ -40,13 +40,13 @@ function MainNavigation() {
                     <FiAlignJustify className={classes.icon} size={24} />
                     <div className={classes.modal}>
                         <ul>
-                            <li>
+                            {/* <li>
                                 <Link to='/friends'>
                                     <span className={classes.span}>
                                         <FaUserFriends size={16} className={classes.smicon}/> 
                                     </span>Friends
                                 </Link>
-                            </li>
+                            </li> */}
                             <li>
                                 <Link to='/notifications'>
                                     <span className={classes.span}>
@@ -81,11 +81,11 @@ function MainNavigation() {
                             <FiUser className={classes.dicon} size={28} />
                         </Link>
                     </div>
-                    <div className={classes.ditem}>
+                    {/* <div className={classes.ditem}>
                         <Link to='/friends'>
                             <FaUserFriends className={classes.dicon} size={28} />
                         </Link>
-                    </div>
+                    </div> */}
                     <div className={classes.ditem}>
                         <Link to='/notifications'>
                             <IoIosNotifications className={classes.dicon} size={28} />

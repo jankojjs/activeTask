@@ -14,3 +14,8 @@
     right: 40px;
     cursor: pointer;
 }
+
+.mainHeadline {
+    font-size: 32px;
+    padding-bottom: 50px;
+}

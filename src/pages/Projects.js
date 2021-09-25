@@ -39,7 +39,7 @@ function ProjectsPage() {
 
     return (
     <div className={classes.wrap}>
-        <h1>All Projects</h1>
+        <div className={classes.mainHeadline}>All Projects</div>
         {loadedProjects.length > 0 ? <ProjectList projects={loadedProjects}/> : <NoProjectsCard newProject={createNewProject}/>}
         {newProjectModal && <Backdrop onCancel={closeCreateNewProject}/>}
         {newProjectModal && <NewProjectForm onCancel={closeCreateNewProject} user_id={userId} />}

@@ -6,11 +6,7 @@ function ChangePasswordForm(props) {
     const oldPwdInput = useRef();
     const newPwdInput = useRef();
     const newPwdConfInput = useRef();
-
-    function cancelPwdFormHandler() {
-        props.pwdFormClick();
-    }
-
+    
     return (
         <div className={classes.container}>
             <div className={classes.card}>

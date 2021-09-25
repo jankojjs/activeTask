@@ -5,9 +5,6 @@ import TimedTasksList from '../TimedTasksList/TimedTasksList';
 
 function TimeWeek() {
     const dateObj = new Date();
-    const currentMonth = dateObj.getMonth();
-    const currentYear = dateObj.getFullYear();
-    const currentDayInMonth = dateObj.getDate();
     const currentDayInWeek = dateObj.getDay();
     const [weekCounter, setWeekCounter] = useState(0);
     const [currentSun, setCurrentSun] = useState();
@@ -21,7 +18,6 @@ function TimeWeek() {
     const [currentSatMonth, setCurrentSatMonth] = useState();
     const [daysArray, setDaysArray] = useState([]);
     const [tasksLoading, setTasksLoading] = useState(true);
-    const [daysForTimedRow, setDaysForTimedRow] = useState();
     const [daysToCalc, setDaysToCalc] = useState([]);
     const [toggle, setToggle] = useState(false);
 
@@ -63,7 +59,6 @@ function TimeWeek() {
         setCurrentSatMonth(getMonthHelper(selectedSaturday.getMonth()));
         setDaysArray([(selectedSunday.toISOString()).substr(0,10),(selectedMonday.toISOString()).substr(0,10),(selectedTuesday.toISOString()).substr(0,10),(selectedWednesday.toISOString()).substr(0,10),(selectedThursday.toISOString()).substr(0,10),(selectedFriday.toISOString()).substr(0,10),(selectedSaturday.toISOString()).substr(0,10)]);
         setTasksLoading(false);
-        setDaysForTimedRow([currentSun,currentMon,currenTue,currentWed,currentThu,currentFri,currentSun]);
         resetDaysInStorage();
         setToggle(false);
     },[weekCounter])

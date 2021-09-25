@@ -14,7 +14,6 @@ function ProjectDetailPage() {
     let history = useHistory();
     const [newTasklist, setNewTasklist] = useState(false)
     const [project, setProject] = useState([]);
-    const [isLoading, setIsLoading] = useState(false);
     const location = useLocation();
     const [state, setState] = useState(0);
     const [projectId] = useState(location.pathname.replace('/project/',''));
@@ -23,7 +22,6 @@ function ProjectDetailPage() {
     const [inviteFormHandler, setInviteFormHandler] = useState(false);
 
     useEffect(() => {
-        setIsLoading(true);
         fetchData();
         setPermisions();
     }, [state]);
@@ -37,7 +35,6 @@ function ProjectDetailPage() {
             if(!data.length) {
                 history.push('/');
             } else {
-                setIsLoading(false);
                 setProject(data[0]);
                 if(data[0].project_permisions==='9000') {
                     setPermisions(true)

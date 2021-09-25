@@ -15,7 +15,6 @@ const TimeContext = createContext({
  });
 
 export function TimeContextProvider(props) {
-    const [timedTasks, setTimedTasks] = useState([]);
     const [isTracking, setIsTracking] = useState(false);
     const [activeTask, setActiveTask] = useState(0);
     const [counter, setCounter] = useState();

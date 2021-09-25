@@ -5,7 +5,6 @@ import { BsFillGridFill } from "react-icons/bs";
 import { IoIosNotifications } from "react-icons/io";
 import { FiAlignJustify, FiUser } from "react-icons/fi";
 import { FaUserFriends } from "react-icons/fa";
-import { AiFillMessage } from "react-icons/ai";
 import { IoLogOutOutline } from "react-icons/io5";
 import { useContext, useEffect, useState } from 'react';
 import LoginContext from '../store/login-context';

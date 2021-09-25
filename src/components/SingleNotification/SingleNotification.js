@@ -1,5 +1,4 @@
 import SingleNotificationCard from '../SingleNotificationCard/SingleNotificationCard';
-import classes from './SingleNotification.module.css';
 import { useState, useEffect } from 'react';
 
 function SingleNotification(props) {

@@ -6,7 +6,6 @@ function EditTaskForm(props) {
     const [editorState, setEditorState] = useState(props.taskDescription);
     const taskNameInput = useRef();
     const taskLabelInput = useRef();
-    const [labelTask,setLabelTask] = useState(props.taskLabel);
 
     function newTaskFormHandler(e) {
         e.preventDefault();

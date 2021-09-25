@@ -3,7 +3,7 @@ import { useState, useRef } from 'react';
 
 function TaskLabelDropdown(props) {
     const taskLabelInput = useRef();
-    const [label, setLabel] = useState(props.label);
+    const [label] = useState(props.label);
 
     function changeHandler() {
         fetchChangeSuccess();

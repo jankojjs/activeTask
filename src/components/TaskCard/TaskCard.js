@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 function TaskCard(props) {
     const [checked, setChecked] = useState(props.active);
-    const [label, setLabel] = useState(props.label);
+    const [label] = useState(props.label);
     let newCheckValue;
     let labelColor;
 

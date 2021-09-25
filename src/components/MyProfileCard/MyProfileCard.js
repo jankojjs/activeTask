@@ -4,10 +4,9 @@ import { Link } from 'react-router-dom';
 
 
 function MyProfileCard(props) {
-    const [email, setEmail] = useState(localStorage.getItem('email'));
-    const [firstname, setFirstname] = useState(localStorage.getItem('firstname'));
-    const [lastname, setLastname] = useState(localStorage.getItem('lastname'));
-    const [userId, setUserId] = useState(localStorage.getItem('user_id'));
+    const [email] = useState(localStorage.getItem('email'));
+    const [firstname] = useState(localStorage.getItem('firstname'));
+    const [lastname] = useState(localStorage.getItem('lastname'));
     const firstnameInput = useRef();
     const lastnameInput = useRef();
     const emailInput = useRef();

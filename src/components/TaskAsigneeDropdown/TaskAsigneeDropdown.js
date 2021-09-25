@@ -1,17 +1,9 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef } from 'react';
 import classes from './TaskAsigneeDropdown.module.css';
 
 function TaskAsigneeDropdown(props) {
     const taskAsigneeInput = useRef();
-    const [asigneeBegining, setAsigneeBegining] = useState(props.asignee);
-    const [initialAsigneeEmptyHandler, setInitialAsigneeEmptyHandler] = useState(props.asignee !== null);
-
-    useEffect(() => {
-        setAsigneeBegining(props.asignee);
-        return () => {
-            setAsigneeBegining();
-        };
-    },[])
+    const [initialAsigneeEmptyHandler] = useState(props.asignee !== null);
 
     function changeHandler() {
         fetchChangeSuccess();
@@ -32,7 +24,6 @@ function TaskAsigneeDropdown(props) {
         })
         .then((data) => {
             if(data !== undefined) {
-                // setAsigneeBegining(taskAsigneeInput.current.value);
             } else {
                 alert('Sorry there was an error while trying to create a new task.')
             }

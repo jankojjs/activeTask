@@ -15,11 +15,15 @@ function CommentList(props) {
                             </div>
                             <div className={classes.commentPart}>
                                 <div className={classes.commentTop}>
-                                    <span className={classes.name}>Janko S.</span>
-                                    <span className={classes.date}>{singleComment.timestamp.slice(0, 16)}</span>
+                                    <div className={classes.text}>
+                                        <span className={classes.name}>Janko S.</span>
+                                        <span className={classes.date}>{singleComment.timestamp.slice(0, 16)}</span>
+                                    </div>
+                                    <div className={classes.controls}>
+                                        aaa
+                                    </div>
                                 </div>
-                                <div className={classes.description} dangerouslySetInnerHTML={{ __html: singleComment.comment_desc }}>
-                                </div>
+                                <div className={classes.description} dangerouslySetInnerHTML={{ __html: singleComment.comment_desc }}></div>
                             </div>
                         </div>
                     )

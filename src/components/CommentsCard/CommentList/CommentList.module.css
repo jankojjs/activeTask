@@ -36,3 +36,8 @@
 .description {
     padding-top: 10px;
 }
+
+.commentTop {
+    display: grid;
+    grid-template-columns: 1fr auto;
+}

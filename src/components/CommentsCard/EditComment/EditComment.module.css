@@ -1,0 +1,54 @@
+
+.newCommentBtn {
+    cursor: pointer;
+}
+
+.avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+    top: 2px;
+    text-align: center;
+    background: green;
+}
+
+.avatarText {
+    position: relative;
+    top: 6px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 30px auto;
+    grid-gap: 20px;
+}
+
+.controls {
+    padding-top: 20px;
+}
+
+.edit {
+    max-width: 520px;
+    background: white;
+}
+
+.toolbarClassName {
+    padding: 5px;
+}
+
+.editorClassName {
+    background: green;
+}
+
+.edit > div > div:nth-child(1) {
+    padding: 5px;
+}
+
+.edit > div > div:nth-child(2) {
+    word-break: break-all;
+    padding: 12px;
+    height: auto;
+    min-height: 120px;
+}

@@ -58,3 +58,7 @@
 .deleteIcon {
     cursor: pointer;
 }
+
+.text {
+    line-height: 1.3;
+}

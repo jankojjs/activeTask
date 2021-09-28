@@ -5,6 +5,8 @@
     cursor: pointer;
     font-size: 16px;
     background-color: white;
+    color: #5d2bff;
+    font-weight: 500;
 }
 
 @media screen and (min-width: 780px) {

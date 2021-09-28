@@ -72,7 +72,7 @@ function PageDetailCard(props) {
                     </div>
                 </div>
                 <div className={classes.right}>
-                    <div className={classes.labelGroup}>Tasklist: <span>{inheritedTask.list_name}</span></div>
+                    <div className={classes.labelGroup}>Tasklist: <span className={classes.purple}>{inheritedTask.list_name}</span></div>
                     <div className={classes.labelGroup}>Asignee: 
                         <TaskAsigneeDropdown taskId={inheritedTask.task_id} peoples={props.people} asignee={inheritedTask.task_asignee}/>
                     </div>

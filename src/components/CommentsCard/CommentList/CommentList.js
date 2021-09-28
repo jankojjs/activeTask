@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import classes from './CommentList.module.css';
+import { RiDeleteBin5Line, RiEdit2Line } from "react-icons/ri";
 
 function CommentList(props) {
     const [comments] = useState(props.comms);
@@ -20,7 +21,8 @@ function CommentList(props) {
                                         <span className={classes.date}>{singleComment.timestamp.slice(0, 16)}</span>
                                     </div>
                                     <div className={classes.controls}>
-                                        aaa
+                                        <span className={classes.editIcon}><RiEdit2Line /></span>
+                                        <span className={classes.deleteIcon}><RiDeleteBin5Line /></span>
                                     </div>
                                 </div>
                                 <div className={classes.description} dangerouslySetInnerHTML={{ __html: singleComment.comment_desc }}></div>

@@ -49,3 +49,12 @@
 .singleCommentWrap:hover .controls {
     display: block;
 }
+
+.editIcon {
+    padding: 0 20px 0 0;
+    cursor: pointer;
+}
+
+.deleteIcon {
+    cursor: pointer;
+}

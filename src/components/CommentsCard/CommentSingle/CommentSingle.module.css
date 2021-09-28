@@ -13,7 +13,7 @@
     position: relative;
     top: 6px;
 }
- /*
+
 .singleCommentWrap {
     display: grid;
     grid-template-columns: 30px auto;
@@ -57,4 +57,4 @@
 
 .deleteIcon {
     cursor: pointer;
-} */
+}

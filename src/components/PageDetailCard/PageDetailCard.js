@@ -55,7 +55,7 @@ function PageDetailCard(props) {
                     <div className={classes.active}>
                         { inheritedTask.task_active ==='0' ? <span className={classes.checked}><AiFillCheckCircle size={22} color={'green'} /></span> : <span className={classes.notChecked}></span>}
                     </div>
-                    <div className={`${inheritedTask.task_active ==='0' ? 'completed' : 'notcompleted' }`}>{taskName}</div>
+                    <div className={`${inheritedTask.task_active ==='0' ? 'completed' : 'notcompleted' }`}><span className={classes.pageDetHeadline}>{taskName}</span></div>
                     <div onClick={editFormOpen} className={classes.edit}><MdEdit size={23}/></div>
                     <div onClick={deleteHandler} className={classes.delete}><MdDelete size={23} /></div>
                     <div onClick={backBtnHandler} className={classes.back}>

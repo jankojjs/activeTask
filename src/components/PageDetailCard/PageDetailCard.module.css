@@ -97,7 +97,7 @@
 .back {
     color: gray;
     cursor: pointer;
-    padding: 20px 0;
+    padding: 10px 0;
 }
 
 .backIcon {
@@ -149,4 +149,9 @@ pre {
     display: block;
     word-wrap: break-word;
     max-width: 450px;
+}
+
+.pageDetHeadline {
+    font-size: 20px;
+    font-weight: 500;
 }

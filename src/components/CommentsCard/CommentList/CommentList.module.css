@@ -41,3 +41,11 @@
     display: grid;
     grid-template-columns: 1fr auto;
 }
+
+.controls {
+    display: none;
+}
+
+.singleCommentWrap:hover .controls {
+    display: block;
+}

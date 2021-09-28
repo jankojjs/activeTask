@@ -8,14 +8,7 @@ function CommentSingle(props) {
     const [singleComment] = useState(props.singleComment);
     const [deleteModalHandler, setDeleteModalHandler] = useState(false);
 
-    function deleteCommentHandler() {
-        // console.log(singleComment.cid);
-        // props.changes();
-    }
-
     function openDeleteModalHandler() {
-        // console.log(singleComment.cid);
-        // props.changes();
         setDeleteModalHandler(true);
     }
 

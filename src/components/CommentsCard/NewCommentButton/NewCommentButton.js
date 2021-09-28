@@ -4,7 +4,7 @@ import { useLocation } from 'react-router';
 import Editor from "../../Editor/Editor";
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 
-function NewCommentButton() {
+function NewCommentButton(props) {
     const location = useLocation();
 
     const [newCommentHandler, setNewCommentHandler] = useState(false);
@@ -43,6 +43,8 @@ function NewCommentButton() {
         .then(data => {
             if(data.length === undefined) {
                 alert('Could not submit your comment.')
+            } else {
+                props.pushNew();
             }
         })
     }

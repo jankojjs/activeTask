@@ -10,6 +10,7 @@ import DeleteTaskModal from '../DeleteTaskModal/DeleteTaskModal';
 import EditTaskForm from '../EditTaskForm/EditTaskForm';
 import TaskLabelDropdown from '../TaskLabelDropdown/TaskLabelDropdown';
 import TaskAsigneeDropdown from '../TaskAsigneeDropdown/TaskAsigneeDropdown';
+import CommentsCard from '../CommentsCard/CommentsCard';
 
 function PageDetailCard(props) {
     const [inheritedTask] = useState(props.taskObj);
@@ -84,6 +85,7 @@ function PageDetailCard(props) {
             { deleteModal && <Backdrop onCancel={closeDeleteModal}/> }
             { deleteModal && <DeleteTaskModal projectId={inheritedTask.project_id} taskId={inheritedTask.task_id} onCancel={closeDeleteModal}/> }
             <div className={classes.timeMobile}><TimeTracking taskDetails={inheritedTask}/></div>
+            <CommentsCard />
         </div>
     )
 }

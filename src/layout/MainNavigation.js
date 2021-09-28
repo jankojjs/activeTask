@@ -64,35 +64,37 @@ function MainNavigation() {
         </div>
         <div className={classes.navd}>
             <div className={classes.dwrap}>
-                <div className={classes.avatar}>{avatarLetter}</div>
-                <div className={classes.dlinks}>
-                    <div className={classes.ditem}>
-                        <Link to='/'>
-                            <BsFillGridFill className={classes.dicon} size={28}/> 
-                        </Link>
-                    </div>
-                    <div className={classes.ditem}>
-                        <Link to='/my-work'>
-                            <BiClipboard className={classes.dicon} size={28} />
-                        </Link>
-                    </div>
-                    <div className={classes.ditem}>
-                        <Link to='/my-profile'>
-                            <FiUser className={classes.dicon} size={28} />
-                        </Link>
-                    </div>
-                    {/* <div className={classes.ditem}>
-                        <Link to='/friends'>
-                            <FaUserFriends className={classes.dicon} size={28} />
-                        </Link>
-                    </div> */}
-                    <div className={classes.ditem}>
-                        <Link to='/notifications'>
-                            <IoIosNotifications className={classes.dicon} size={28} />
-                        </Link>
-                    </div>
-                    <div className={`${classes.ditem} ${classes.dlogout}`}>
-                        <IoLogOutOutline onClick={lgoutCtx.logoutUser} className={classes.dicon} size={30} />
+                <div className={classes.dcont}>
+                    <div className={classes.avatar}>{avatarLetter}</div>
+                    <div className={classes.dlinks}>
+                        <div className={classes.ditem}>
+                            <Link to='/'>
+                                <BsFillGridFill className={classes.dicon} size={28}/> 
+                            </Link>
+                        </div>
+                        <div className={classes.ditem}>
+                            <Link to='/my-work'>
+                                <BiClipboard className={classes.dicon} size={28} />
+                            </Link>
+                        </div>
+                        <div className={classes.ditem}>
+                            <Link to='/my-profile'>
+                                <FiUser className={classes.dicon} size={28} />
+                            </Link>
+                        </div>
+                        {/* <div className={classes.ditem}>
+                            <Link to='/friends'>
+                                <FaUserFriends className={classes.dicon} size={28} />
+                            </Link>
+                        </div> */}
+                        <div className={classes.ditem}>
+                            <Link to='/notifications'>
+                                <IoIosNotifications className={classes.dicon} size={28} />
+                            </Link>
+                        </div>
+                        <div className={`${classes.ditem} ${classes.dlogout}`}>
+                            <IoLogOutOutline onClick={lgoutCtx.logoutUser} className={classes.dicon} size={30} />
+                        </div>
                     </div>
                 </div>
             </div>

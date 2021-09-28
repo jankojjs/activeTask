@@ -125,7 +125,6 @@
     height: 100%;
     background: white;
     border-right: 1px solid #cacaca;
-    padding-top: 20px;
 }
 
 .dicon {
@@ -149,4 +148,8 @@
 
 .dlinks a:hover .dicon {
     color: #1976d2;
+}
+
+.dcont {
+    padding-top: 20px;
 }

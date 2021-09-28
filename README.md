@@ -9,13 +9,21 @@ Contact me if you want an account at janko@jjsolutions.rs
 
 Scroll down for available scripts
 
+Projects page:
 ![projects](screenshots/projects.png)
+Project detail page:
 ![project detail](screenshots/project-view.png)
+Task detail page:
 ![task detail](screenshots/task-detail.png)
+Work week page:
 ![work week](screenshots/work-week.png)
+Adding a task:
 ![new task](screenshots/new-task.png)
+Inviting to project:
 ![invite to project](screenshots/invitations.png)
+Notification page:
 ![notifications](screenshots/notifications.png)
+My profile page:
 ![my-profile](screenshots/my-profile.png)
 
 

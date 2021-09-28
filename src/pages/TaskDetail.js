@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useLocation, useHistory } from 'react-router'; 
+import CommentsCard from '../components/CommentsCard/CommentsCard';
 import PageDetailCard from '../components/PageDetailCard/PageDetailCard';
 
 function TaskDetailPage() {
@@ -56,6 +57,7 @@ function TaskDetailPage() {
     return (
         <div>
             { notLoading ? <PageDetailCard taskObj={taskObj} people={peopleArr}/> : <div>Loading...</div> }
+            <CommentsCard />
         </div>
     )
 }

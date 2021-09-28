@@ -40,7 +40,7 @@ function CommentsCard() {
         <div className={classes.card}>
             <div className={classes.discussion}>Discussion</div>
             <NewCommentButton pushNew={pushNewHandler}/>
-            { noCommentsHandler && <CommentList comms={commentsArray}/> }
+            { noCommentsHandler && <CommentList comms={commentsArray} changes={pushNewHandler}/> }
         </div>
     )
 }

@@ -11,7 +11,7 @@ function CommentList(props) {
             {
                 comments.map((singleComment)=>{
                     return (
-                        <CommentSingle singleComment={singleComment} key={singleComment.cid}/>
+                        <CommentSingle singleComment={singleComment} key={singleComment.cid} changes={props.changes}/>
                     )
                 })
             }

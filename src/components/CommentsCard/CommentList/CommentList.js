@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import classes from './CommentList.module.css';
-import { RiDeleteBin5Line, RiEdit2Line } from "react-icons/ri";
 import CommentSingle from '../CommentSingle/CommentSingle';
 
 function CommentList(props) {

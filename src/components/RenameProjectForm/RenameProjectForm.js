@@ -19,7 +19,6 @@ function RenameProjectForm(props) {
                 alert('Something went wrong.')
             }
         })
-
     }
 
     return (

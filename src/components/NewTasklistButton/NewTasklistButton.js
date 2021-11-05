@@ -1,7 +1,6 @@
 import { BsPlus } from "react-icons/bs";
 import classes from './NewTasklistButton.module.css';
 
-
 function NewTasklistButton(props) {
     return (
         <div className={classes.wrap} onClick={props.onClick}>

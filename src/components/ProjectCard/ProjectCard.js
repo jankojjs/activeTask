@@ -34,8 +34,6 @@ function ProjectCard(props) {
         setEditModal(false);
     }
 
-
-
     return (
         <div className={classes.card}>
             <div className={classes.toprow}>

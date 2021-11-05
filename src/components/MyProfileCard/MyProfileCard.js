@@ -2,7 +2,6 @@ import classes from './MyProfileCard.module.css';
 import { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 
-
 function MyProfileCard(props) {
     const [email] = useState(localStorage.getItem('email'));
     const [firstname] = useState(localStorage.getItem('firstname'));

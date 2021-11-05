@@ -26,21 +26,20 @@ function LoginForm() {
         return response.json();
         })
         .then((body) => {
-                if(body.user !== undefined) {
-                    loggedInCtx.loginUser(body.user);
-                    localStorage.setItem('user_id',body.user.user_id);
-                    localStorage.setItem('username',body.user.username);
-                    localStorage.setItem('avatar',body.user.profile_image);
-                    localStorage.setItem('verified',body.user.verified);
-                    localStorage.setItem('firstname',body.user.firstname);
-                    localStorage.setItem('lastname',body.user.lastname);
-                    localStorage.setItem('email',body.user.email);
-                    history.push('/');
-                } else {
-                    alert('Please check if you entered valid credentials.')
-                }
+            if(body.user !== undefined) {
+                loggedInCtx.loginUser(body.user);
+                localStorage.setItem('user_id',body.user.user_id);
+                localStorage.setItem('username',body.user.username);
+                localStorage.setItem('avatar',body.user.profile_image);
+                localStorage.setItem('verified',body.user.verified);
+                localStorage.setItem('firstname',body.user.firstname);
+                localStorage.setItem('lastname',body.user.lastname);
+                localStorage.setItem('email',body.user.email);
+                history.push('/');
+            } else {
+                alert('Please check if you entered valid credentials.')
+            }
         });
-
     }
 
     return <div className={classes.formDiv}>

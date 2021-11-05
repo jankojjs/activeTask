@@ -1,7 +1,6 @@
 import classes from './ChangePasswordForm.module.css';
 import { useRef } from 'react';
 
-
 function ChangePasswordForm(props) {
     const oldPwdInput = useRef();
     const newPwdInput = useRef();

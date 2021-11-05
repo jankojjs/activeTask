@@ -19,7 +19,6 @@ function NewProjectForm(props) {
                 alert('Something went wrong.')
             }
         })
-
     }
 
     return (

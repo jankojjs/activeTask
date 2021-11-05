@@ -18,7 +18,6 @@ function NewTasklistModal(props) {
                 alert('Something went wrong.')
             }
         })
-
     }
 
     return (

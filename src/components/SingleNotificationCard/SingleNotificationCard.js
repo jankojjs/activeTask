@@ -25,11 +25,11 @@ function SingleNotificationCard(props) {
         return response.json();
         })
         .then((body) => {
-                if(body !== undefined) {
-                } else {
-                    // if empty array do smth
-                    alert('Could not delete notification at this time.')
-                }
+            if(body !== undefined) {
+            } else {
+                // if empty array do smth
+                alert('Could not delete notification at this time.')
+            }
         });
     }
 
@@ -46,11 +46,11 @@ function SingleNotificationCard(props) {
         return response.json();
         })
         .then((body) => {
-                if(body !== undefined) {
-                    alert('You successfuly joined project '+props.notification.project_name);
-                } else {
-                    alert('Could not join project at this moment.')
-                }
+            if(body !== undefined) {
+                alert('You successfuly joined project '+props.notification.project_name);
+            } else {
+                alert('Could not join project at this moment.')
+            }
         });
     }
 

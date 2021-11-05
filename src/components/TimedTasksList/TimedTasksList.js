@@ -43,10 +43,10 @@ function TimedTasksList(props) {
                 if(body !== undefined) {
                     // console.log(body.length)
                     body.map((singleTasklton)=> {
-                        if(newData.indexOf(singleTasklton.taskId) !== -1){
+                        if(newData.indexOf(singleTasklton.taskId) !== -1) {
                             //colors contains the string "blue"
 
-                        }else{
+                        } else {
                             //colors does not contain the string "blue"
                             newData.push({
                                 'timetrackId': singleTasklton.timetrackId,

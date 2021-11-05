@@ -21,9 +21,9 @@ function Stopwatch() {
 
     return (
         <div>
-        { isTracking && <StopwatchCard onClick={pauseClick} taskId={localStorage.getItem('active_task')}/> }
-            </div>
-            )
+            { isTracking && <StopwatchCard onClick={pauseClick} taskId={localStorage.getItem('active_task')}/> }
+        </div>
+    )
 }
 
 export default Stopwatch;

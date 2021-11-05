@@ -1,6 +1,5 @@
 import { createContext, useState, useEffect } from "react";
 
-
 const TimeContext = createContext({
     timedTasks: [],
     isTracking: false,
@@ -11,13 +10,13 @@ const TimeContext = createContext({
     addActiveTask: (task_id) => {},
     removeActiveTask: (task_id) => {},
     uploadTimeForTask: (task_id) => {},
-
  });
 
 export function TimeContextProvider(props) {
     const [isTracking, setIsTracking] = useState(false);
     const [activeTask, setActiveTask] = useState(0);
     const [counter, setCounter] = useState();
+    
     function addTimedTaskHandler(taskId) {
         if(localStorage.getItem(taskId) !== null) {
             setCounter(parseInt(localStorage.getItem(taskId)))

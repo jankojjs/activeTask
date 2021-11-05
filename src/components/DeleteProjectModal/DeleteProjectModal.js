@@ -14,7 +14,6 @@ function DeleteProjectModal(props) {
                 alert('There was an error deleting that project.')
             }
         })
-
     }
 
     return (

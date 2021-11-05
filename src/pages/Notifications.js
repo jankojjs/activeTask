@@ -27,7 +27,6 @@ function NotificationsPage() {
         });
     }, [userId]);
 
-
     return (
         <div>
             <div className={classes.pageHeadline}>Notifications</div>

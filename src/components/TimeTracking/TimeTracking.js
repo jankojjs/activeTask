@@ -41,6 +41,7 @@ function TimeTracking(props) {
             }
         })
     }
+    
     function resetTrackingHandler() {
         setIsTracking(false);
         TimeCtx.resetCounting(props.taskDetails.task_id);

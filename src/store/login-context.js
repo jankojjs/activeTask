@@ -1,6 +1,5 @@
 import { createContext, useState } from "react";
 
-
 const LoginContext = createContext({
     user: {},
     online: false,

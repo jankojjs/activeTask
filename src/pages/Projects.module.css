@@ -1,21 +1,21 @@
 .wrap {
-    padding: 20px;
+  padding: 20px;
 }
 
 .np {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background: #004ba0;
-    display: grid;
-    place-items: center;
-    position: fixed;
-    bottom: 90px;
-    right: 40px;
-    cursor: pointer;
+  display: grid;
+  position: fixed;
+  right: 40px;
+  bottom: 90px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #004ba0;
+  place-items: center;
+  cursor: pointer;
 }
 
 .mainHeadline {
-    font-size: 32px;
-    padding-bottom: 50px;
+  padding-bottom: 50px;
+  font-size: 32px;
 }

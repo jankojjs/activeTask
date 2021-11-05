@@ -1,155 +1,154 @@
 .navmob {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    text-align: center;
-    background-color: #1976d2;
-    padding: 10px 20px;
-    z-index: 100;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 10px 20px;
+  text-align: center;
+  background-color: #1976d2;
+  z-index: 100;
 }
 
 .wrap {
-    display: grid;
-    max-width: 480px;
-    margin: 0 auto;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+  display: grid;
+  max-width: 480px;
+  margin: 0 auto;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
 .item {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .icon {
-    color: #cacaca;
+  color: #cacaca;
 }
 
 .item:hover .icon {
-    color: white;
+  color: white;
 }
 
-@media only screen and (min-width: 600px)  {
-    .navmob {
-        display: none;
-    }
+@media only screen and (min-width: 600px) {
+  .navmob {
+    display: none;
+  }
 }
 
 .item a {
-    padding: 20px;
+  padding: 20px;
 }
 
 .others {
-    position: relative;
-    margin-top: -10px;
-    margin-bottom: -20px;
-    padding-top: 10px;
+  position: relative;
+  padding-top: 10px;
+  margin-top: -10px;
+  margin-bottom: -20px;
 }
 
 .others:hover .modal {
-    display: block;
+  display: block;
 }
 
 .modal {
-    display: none;
-    position: absolute;
-    bottom: 55px;
-    right: 0px;
-    border-radius: 4px;
-    border: 1px solid #cacaca;
-    z-index: 3;
+  display: none;
+  position: absolute;
+  bottom: 55px;
+  right: 0px;
+  border-radius: 4px;
+  border: 1px solid #cacaca;
+  z-index: 3;
 }
 
 .modal ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    background: white;
-    width: 150px;
+  width: 150px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  background: white;
 }
 
 .modal ul li {
-    text-align: left;
-    padding: 0;
+  padding: 0;
+  text-align: left;
 }
 
 .modal ul li a {
-    padding: 10px 15px;
-    text-decoration: none;
-    color: #615d5d;
-    display: block;
+  display: block;
+  padding: 10px 15px;
+  text-decoration: none;
+  color: #615d5d;
 }
 
 .span {
-    margin-right: 10px;
+  margin-right: 10px;
 }
 
 .modal ul li a:hover {
-    color: black;
+  color: black;
 }
 
 .modal ul li a:hover .smicon {
-    color: black;
+  color: black;
 }
 
 .modal ul li:last-child {
-    padding: 10px 15px;
+  padding: 10px 15px;
 }
 
 .smicon {
-    color: #615d5d;
+  color: #615d5d;
 }
 
-
-@media only screen and (max-width: 600px)  {
-    .navd {
-        display: none;
-    }
+@media only screen and (max-width: 600px) {
+  .navd {
+    display: none;
+  }
 }
 
 .avatar {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: #80c271;
-    font-size: 18px;
-    display: grid;
-    place-items: center;
-    margin: 0 auto 40px;
+  display: grid;
+  width: 40px;
+  height: 40px;
+  margin: 0 auto 40px;
+  border-radius: 50%;
+  background: #80c271;
+  font-size: 18px;
+  place-items: center;
 }
 
 .navd {
-    height: 100%;
+  height: 100%;
 }
 
 .dwrap {
-    height: 100%;
-    background: white;
-    border-right: 1px solid #cacaca;
+  height: 100%;
+  background: white;
+  border-right: 1px solid #cacaca;
 }
 
 .dicon {
-    color: #cacaca;
-    margin: 0 auto;
-    display: block;
+  display: block;
+  margin: 0 auto;
+  color: #cacaca;
 }
 
 .dlinks {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .dlinks a {
-    padding: 20px;
-    display: block;
+  display: block;
+  padding: 20px;
 }
 
 .dlogout {
-    margin-top: 60px;
+  margin-top: 60px;
 }
 
 .dlinks a:hover .dicon {
-    color: #1976d2;
+  color: #1976d2;
 }
 
 .dcont {
-    padding-top: 20px;
+  padding-top: 20px;
 }

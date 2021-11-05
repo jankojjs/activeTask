@@ -1,10 +1,10 @@
 .headline {
-    font-weight: 400;
-    padding: 0 20px;
+  padding: 0 20px;
+  font-weight: 400;
 }
 
 .grid {
-    display:grid;
-    place-items: center;
-    max-width: 600px;
+  display: grid;
+  place-items: center;
+  max-width: 600px;
 }

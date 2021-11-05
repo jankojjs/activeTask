@@ -21,7 +21,6 @@ function TimeWeek() {
     const [daysToCalc, setDaysToCalc] = useState([]);
     const [toggle, setToggle] = useState(false);
 
-    //calculating
     const [calcSun, setCalcSun] = useState(0);
     const [calcMon, setCalcMon] = useState(0);
     const [calcTue, setCalcTue] = useState(0);
@@ -31,7 +30,7 @@ function TimeWeek() {
     const [calcSat, setCalcSat] = useState(0);
     const [calcTotal, setCalcTotal] = useState(0);
 
-    // will refractor this, i promise
+    //  @ToDo: will refractor this, i promise
     useEffect(() => {
         let normalDate = new Date();
         let selectedSunday = new Date(normalDate.getTime() - normalDate.getTimezoneOffset() * 60000);
@@ -161,7 +160,7 @@ function TimeWeek() {
             <div className={classes.tableBot}>
                 <div className={classes.usrnm}>
                     {/* <span>avatar</span> */}
-                    <span>Janko Stanic</span>
+                    <span> { localStorage.getItem('firstname') } { localStorage.getItem('lastname') }</span>
                 </div>
                 <div>{ calcSun > 0 && new Date(calcSun*1000/2).toISOString().substr(11, 5)}</div>
                 <div>{ calcMon > 0 && new Date(calcMon*1000/2).toISOString().substr(11, 5)}</div>

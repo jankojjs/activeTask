@@ -1,20 +1,20 @@
 import LoginCard from "../components/LoginCard/LoginCard";
-import { useState } from 'react';
+import { useState } from "react";
 import PreLoginNav from "../components/PreLoginNav/PreLoginNav";
 
 function LoginPage() {
-    const [loginCardHandler, setLoginCardHandler] = useState(false);
+  const [loginCardHandler, setLoginCardHandler] = useState(false);
 
-    function loginCardHandlerOpen() {
-        setLoginCardHandler(true);
-    }
+  function loginCardHandlerOpen() {
+    setLoginCardHandler(true);
+  }
 
-    return (
-        <div>
-            { loginCardHandler && <PreLoginNav login={loginCardHandlerOpen}/> }
-            <LoginCard /> 
-        </div>
-    )
+  return (
+    <div>
+      {loginCardHandler && <PreLoginNav login={loginCardHandlerOpen} />}
+      <LoginCard />
+    </div>
+  );
 }
 
 export default LoginPage;

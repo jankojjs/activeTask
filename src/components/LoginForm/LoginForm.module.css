@@ -1,19 +1,19 @@
-form {    
-    padding: 20px 50px 20px 20px;
-    margin: 0;
-    border-radius: 8px;
-    border: 1px solid #d7d7da;
-    background: white;
+form {
+  padding: 20px 50px 20px 20px;
+  margin: 0;
+  border-radius: 8px;
+  border: 1px solid #d7d7da;
+  background: white;
 }
 
 input {
-    display: block;
-    padding: 10px 15px;
-    margin-bottom: 20px;
-    width: 100%;
-    max-width: 260px;
-    font-size: 14px;
-    color: rgb(19, 18, 18);
-    border-radius: 4px;
-    border: 1px solid #d7d7da;
+  display: block;
+  padding: 10px 15px;
+  margin-bottom: 20px;
+  width: 100%;
+  max-width: 260px;
+  font-size: 14px;
+  color: rgb(19, 18, 18);
+  border-radius: 4px;
+  border: 1px solid #d7d7da;
 }

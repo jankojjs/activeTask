@@ -1,21 +1,21 @@
 .list {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-gap: 20px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 20px;
 }
 
-@media only screen and (min-width: 425px){
-    .list {
-        grid-template-columns: 1fr 1fr;
-    }
+@media only screen and (min-width: 425px) {
+  .list {
+    grid-template-columns: 1fr 1fr;
+  }
 }
-@media only screen and (min-width: 800px){
-    .list {
-        grid-template-columns: 1fr 1fr 1fr;
-    }
+@media only screen and (min-width: 800px) {
+  .list {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 }
-@media only screen and (min-width: 1200px){
-    .list {
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-    }
+@media only screen and (min-width: 1200px) {
+  .list {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
 }

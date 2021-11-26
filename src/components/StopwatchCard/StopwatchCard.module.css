@@ -1,18 +1,18 @@
 .pause {
-    position: relative;
-    top: 8px;
-    padding-right: 10px;
-    cursor: pointer;
+  position: relative;
+  top: 8px;
+  padding-right: 10px;
+  cursor: pointer;
 }
 
 .stopwatchCard a {
-    text-decoration: none;
-    color: blue;
+  text-decoration: none;
+  color: blue;
 }
 
 .stopwatchCard {
-    padding-bottom: 12px;
-    padding-right: 20px;
-    border-radius: 20px;
-    background-color: rgb(255, 214, 230);
+  padding-bottom: 12px;
+  padding-right: 20px;
+  border-radius: 20px;
+  background-color: rgb(255, 214, 230);
 }

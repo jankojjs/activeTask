@@ -1,17 +1,17 @@
 .headline {
-    margin: 0;
+  margin: 0;
 }
 
 .input {
-    margin-top: 10px;
-    font-size: 12px;
+  margin-top: 10px;
+  font-size: 12px;
 }
 
 .btns button {
-    display: inline-block;
-    margin: 0 !important;
+  display: inline-block;
+  margin: 0 !important;
 }
 
 .btns button {
-    margin-left: 7px !important;
+  margin-left: 7px !important;
 }

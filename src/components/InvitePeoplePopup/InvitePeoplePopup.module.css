@@ -1,25 +1,25 @@
 .grid {
-    display: grid;
+  display: grid;
 }
 
 .top {
-    border-bottom: 1px solid #cacaca;
-    padding: 10px 20px;
+  border-bottom: 1px solid #cacaca;
+  padding: 10px 20px;
 }
 
 .bot {
-    padding: 10px 20px;
+  padding: 10px 20px;
 }
 
 .crown {
-    position: relative;
-    top: 1px;
-    padding-right: 10px;
+  position: relative;
+  top: 1px;
+  padding-right: 10px;
 }
 
 .membs {
-    color: rgb(26, 148, 26);
-    font-size: 14px;
-    padding: 5px 22px 0;
-    font-weight: 500;
+  color: rgb(26, 148, 26);
+  font-size: 14px;
+  padding: 5px 22px 0;
+  font-weight: 500;
 }

@@ -1,85 +1,85 @@
 .checkd {
-    position: relative;
-    top: 5px;
-    cursor: pointer;
-    padding: 10px;
+  position: relative;
+  top: 5px;
+  cursor: pointer;
+  padding: 10px;
 }
 
 .name {
-    font-size: 16px;
+  font-size: 16px;
 }
 
 .linkItem {
-    color: black;
-    text-decoration: none;
+  color: black;
+  text-decoration: none;
 }
 
 .finished {
-    opacity: 0.5;    
-    padding-bottom: 5px;
-    border-radius: 20px;
+  opacity: 0.5;
+  padding-bottom: 5px;
+  border-radius: 20px;
 }
 
 .finished:hover {
-    background-color: lightgray;
+  background-color: lightgray;
 }
 
 .notFinished:hover {
-    background-color: #cacaca;
+  background-color: #cacaca;
 }
 
 .notFinished {
-    padding-bottom: 5px;
-    border-radius: 20px;
+  padding-bottom: 5px;
+  border-radius: 20px;
 }
 
 .notChecked {
-    position: relative;
-    cursor: pointer;
-    width: 17px;
-    height: 17px;
-    border-radius: 50%;
-    border: 1px solid #5e5c5c;
-    display: inline-block;
-    margin-left: 2px;
-    margin-top: 2px;
+  position: relative;
+  cursor: pointer;
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  border: 1px solid #5e5c5c;
+  display: inline-block;
+  margin-left: 2px;
+  margin-top: 2px;
 }
 
 .label {
-    padding-left: 35px;
-    color: gray;
-    display: inline-block;
-    position: relative;
-    font-size: 12px;
-    bottom: 1px;
+  padding-left: 35px;
+  color: gray;
+  display: inline-block;
+  position: relative;
+  font-size: 12px;
+  bottom: 1px;
 }
 
 .label::before {
-    content: '';
-    display: list-item;
-    list-style-type: disc;
-    list-style-position: inside;
-    position: absolute;
-    left: 20px;
-    bottom: 1px;
+  content: "";
+  display: list-item;
+  list-style-type: disc;
+  list-style-position: inside;
+  position: absolute;
+  left: 20px;
+  bottom: 1px;
 }
 
 .teal {
-    color: teal;
+  color: teal;
 }
 
 .blue {
-    color: blue;
+  color: blue;
 }
 
 .red {
-    color: red;
+  color: red;
 }
 
 .lightgreen {
-    color: lightgreen;
+  color: lightgreen;
 }
 
 .orange {
-    color: orange;
+  color: orange;
 }

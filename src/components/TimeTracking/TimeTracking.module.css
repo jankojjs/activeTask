@@ -1,57 +1,55 @@
 .wrap {
-    width: 250px;
-    border: 1px solid #cacaca;
-    border-radius: 4px;
-    margin: 10px 0;
+  width: 250px;
+  border: 1px solid #cacaca;
+  border-radius: 4px;
+  margin: 10px 0;
 }
 
-
 @media screen and (min-width: 780px) {
-    .wrap {
-        margin: 10px 0 10px auto;
-    }
+  .wrap {
+    margin: 10px 0 10px auto;
+  }
 }
 
 .top {
-    text-align: right;
-    padding: 10px 15px;
-    border-bottom: 1px solid #cacaca;
-    background-color: lightblue;
+  text-align: right;
+  padding: 10px 15px;
+  border-bottom: 1px solid #cacaca;
+  background-color: lightblue;
 }
 
 .bot {
-    padding: 10px 15px;
-    display: grid;
-    grid-template-columns: auto 1fr auto;
-    background: white;
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
+  padding: 10px 15px;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  background: white;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
 }
 
 .botMid {
-    text-align: center;
+  text-align: center;
 }
 
 .reset {
-    position: relative;
-    top: 6px;
-    cursor: pointer;
-    padding-left: 10px;
+  position: relative;
+  top: 6px;
+  cursor: pointer;
+  padding-left: 10px;
 }
 
 .startTimer {
-    cursor: pointer;
-    position: relative;
-    top: 2px;
+  cursor: pointer;
+  position: relative;
+  top: 2px;
 }
 
 .debugTools {
-    display: none;
+  display: none;
 }
 
 .uploadBtn {
-    cursor: pointer;
-    position: relative;
-    top: 3px;
-
+  cursor: pointer;
+  position: relative;
+  top: 3px;
 }

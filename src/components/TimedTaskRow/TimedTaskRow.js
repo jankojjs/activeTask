@@ -66,7 +66,9 @@ function TimedTaskRow(props) {
     );
   }
 
+  // eslint-disable-next-line array-callback-return
   props.singleTaskInfo.days.map((singleDay) => {
+    // eslint-disable-next-line array-callback-return
     props.days.map((singleWeekDay) => {
       if (singleDay[singleWeekDay] !== undefined) {
         dataArr.push({

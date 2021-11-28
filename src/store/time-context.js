@@ -52,6 +52,7 @@ export function TimeContextProvider(props) {
 
   useEffect(() => {
     if (isTracking) {
+      // eslint-disable-next-line react-hooks/exhaustive-deps
       interval = setInterval(() => {
         tickTime();
         localStorage.setItem(activeTask, counter);

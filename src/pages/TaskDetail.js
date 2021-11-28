@@ -22,6 +22,7 @@ function TaskDetailPage() {
     fetchTaskPeople();
 
     return taskId;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [taskId]);
 
   function fetchTaskHandler() {

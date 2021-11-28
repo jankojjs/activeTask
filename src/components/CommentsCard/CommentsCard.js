@@ -6,7 +6,7 @@ import CommentList from "./CommentList/CommentList";
 
 function CommentsCard() {
   const location = useLocation();
-  const [taskId, setTaskId] = useState(location.pathname.replace("/task/", ""));
+  const [taskId] = useState(location.pathname.replace("/task/", ""));
   const [noCommentsHandler, setNoCommentsHandler] = useState(false);
   const [commentsArray, setCommentsArray] = useState();
 
@@ -27,6 +27,7 @@ function CommentsCard() {
     fetchCommentsHandler();
 
     return taskId;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [taskId]);
 
   function pushNewHandler() {

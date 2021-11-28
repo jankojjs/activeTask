@@ -9,7 +9,7 @@ function NewCommentButton(props) {
 
   const [newCommentHandler, setNewCommentHandler] = useState(false);
   const [editorState, setEditorState] = useState("");
-  const [taskId, setTaskId] = useState(location.pathname.replace("/task/", ""));
+  const [taskId] = useState(location.pathname.replace("/task/", ""));
 
   function submitCommentHandler() {
     setNewCommentHandler(false);

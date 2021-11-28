@@ -25,6 +25,7 @@ function TimeTracking(props) {
   useEffect(() => {
     setCounter(localStorage.getItem(props.taskDetails.task_id));
     isTrackingCheck();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [TimeCtx]);
 
   function isTrackingCheck() {

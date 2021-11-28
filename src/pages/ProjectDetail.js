@@ -24,6 +24,7 @@ function ProjectDetailPage() {
   useEffect(() => {
     fetchData();
     setPermisions();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [state]);
 
   function fetchData() {

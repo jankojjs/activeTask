@@ -55,6 +55,8 @@ function TaskAsigneeDropdown(props) {
                 {singlePerson.username}
               </option>
             );
+          } else {
+            return null;
           }
         })}
       </select>

@@ -16,6 +16,7 @@ function TimedTasksList(props) {
     const day7 = days[6];
 
     fetchTaskTimesByDays(user_id, day1, day2, day3, day4, day5, day6, day7);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [props.arrayOfDays]);
 
   function passToggle() {
@@ -51,6 +52,7 @@ function TimedTasksList(props) {
       .then((body) => {
         if (body !== undefined) {
           // console.log(body.length)
+          // eslint-disable-next-line array-callback-return
           body.map((singleTasklton) => {
             if (newData.indexOf(singleTasklton.taskId) !== -1) {
               //colors contains the string "blue"

@@ -28,6 +28,7 @@ function TasklistCard(props) {
 
   useEffect(() => {
     countUpActiveCounter();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeTasks.length]);
 
   function countUpActiveCounter() {
